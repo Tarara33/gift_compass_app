@@ -69,3 +69,6 @@
 
 ## 画面遷移図
 	[URL](https://www.figma.com/file/oQcimUU0YsDNTuvM9dUCBt/Gift-Compass-%E7%94%BB%E9%9D%A2%E9%81%B7%E7%A7%BB%E5%9B%B3?type=design&node-id=0%3A1&mode=design&t=lG1WTykRUoKa6vrW-1)
+
+## ER図
+	[URL](https://gyazo.com/8723bbe48d5b4940a2eb65085a6a7d22)
