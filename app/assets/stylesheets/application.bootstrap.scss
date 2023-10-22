@@ -5,3 +5,19 @@
 header {
   background-color: rgb(56, 182, 255);
 }
+
+footer {
+  background-color: rgb(56, 182, 255);
+  color: white;
+
+  .footer-item {
+    text-decoration: none;
+    color: white;
+    margin-left: 15px;
+    text-align: right;
+  }
+
+  .footer-item:hover {
+    color: black;
+  }
+}
