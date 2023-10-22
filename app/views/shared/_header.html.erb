@@ -1,30 +1,30 @@
 <header>
-  <nav class='navbar navbar-expand-lg bg-info'>
-    <%= link_to image_tag("logo.jpeg", size: '250x60'), root_path, class: "navbar-brand" %>
-    <button class='navbar-toggler' type='button data-bs-toggle='dropdown' data-target='#navbarSupportedContent'
-      aria-controls='navbarSupportedContent' aria-expanded='false' aria-label='Toggle navigation'>
-      <span class="navbar-toggler-icon"></span>
-    </button>
-
-    <div class='collapse navbar-collapse' id='navbarSupportedContent'>
-      <ul class='navbar-nav ms-auto align-items-end'>
-        <li class='nav-item'>
-          <%= link_to '欲しいもの登録', '#', class: "nav-link" %>
-        </li>
-        <li class='nav-item'>
-          <%= link_to 'お気に入り', '#', class: "nav-link" %>
-        </li>
-        <li class='nav-item dropdown dropdown-slide'>
-          <a href='#' class='nav-link' data-bs-toggle='dropdown' aria-haspopup='true' aria-expanded='false' id='header-profile'>
-            <%= image_tag 'icon.jpeg', class: "rounded-circle mr15", width: "65px", height: "65px" %>
-          </a>
-          <div class='dropdown-menu dropdown-menu-end'>
-            <%= link_to 'プロフィール', '#', class: "dropdown-item" %>
-            <%= link_to '設定', '#', class: "dropdown-item" %>
-            <%= link_to 'ログアウト', '#', method: :delete, class: "dropdown-item" %>
-          </div>
-        </li>
-      </ul>
+  <nav class="navbar navbar-expand-lg">
+    <div class="container-fluid">
+      <%= link_to image_tag("logo.jpeg", size: '250x60'), root_path, class: "navbar-brand" %>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNavDropdown">
+        <ul class="navbar-nav ms-auto align-items-end">
+          <li class="nav-item">
+            <%= link_to '欲しいもの登録', '#', class: "nav-link" %>
+          </li>
+          <li class="nav-item">
+            <%= link_to 'お気に入り', '#', class: "nav-link" %>
+          </li>
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+              <%= image_tag 'icon.jpeg', class: "rounded-circle mr15", width: "65px", height: "65px" %>
+            </a>
+            <ul class="dropdown-menu dropdown-menu-end">
+              <%= link_to 'プロフィール', '#', class: "dropdown-item" %>
+              <%= link_to '設定', '#', class: "dropdown-item" %>
+              <%= link_to 'ログアウト', '#', method: :delete, class: "dropdown-item" %>
+            </ul>
+          </li>
+        </ul>
+      </div>
     </div>
   </nav>
 </header>
