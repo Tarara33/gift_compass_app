@@ -1,6 +1,11 @@
 @import 'bootstrap/scss/bootstrap';
 @import 'bootstrap-icons/font/bootstrap-icons';
+@import url('https://fonts.googleapis.com/css2?family=M+PLUS+1p:wght@300;500;700&family=Yusei+Magic&display=swap');
 @import 'top';
+
+body {
+  font-family: 'M PLUS Rounded 1c', sans-serif;
+}
 
 header {
   background-color: rgb(56, 182, 255);
@@ -12,8 +17,8 @@ footer {
 
   .footer-item {
     text-decoration: none;
-    color: white;
-    margin-left: 15px;
+    text-decoration-color: white;
+    margin: 5px 0 0 15px;
     text-align: right;
   }
 

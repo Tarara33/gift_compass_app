@@ -1,0 +1,31 @@
+// トップページの画像部分
+.image {
+  height: auto;
+  max-width: 100%;
+  background-image: url('top1.jpg');
+  background-size: cover;
+  
+}
+
+.top-inner-text {
+  h1 {
+    font-family: 'Yusei Magic', sans-serif;
+    padding: 100px 100px 0 100px;
+    text-align: left;
+  }
+
+  h5 {
+    padding: 50px 100px;
+  }
+}
+
+button {
+  margin: 0 0 50px 230px;
+}
+
+// トップページの使いかた部分
+.top-item {
+  h1 {
+    font-family: 'Yusei Magic', sans-serif;
+  }
+}
