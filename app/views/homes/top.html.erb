@@ -1,1 +1,43 @@
-<h1>使い方</h1>
+<!-- トップ画像の部分 -->
+<div class='container-lg image'>
+  <div class='top-inner-text'>
+    <h1>プレゼント選びに</br>
+    迷ったことはありませんか??</h1>
+    <h5>みんなの欲しいものリストを覗いてみて</br>
+    あの人に渡すプレゼントの参考にしてみませんか</H5>
+  </div>
+  <button class='btn btn-primary'><i class="bi bi-search-heart"></i> 探しに行く</button>
+</div>
+
+<!-- 使い方の部分 -->
+<div class='container-sm top-item'>
+  <h1 class="text-center py-3"><i class="bi bi-magic"></i> 使いかた</h1>
+
+  <div class="row row-cols-1 row-cols-md-2 g-4">
+    <div class='col'>
+      <div class="card border-info mb-3">
+        <%= image_tag 'hoshii.png', size: '300x300', class: 'mx-auto d-block' %>
+        <div class="card-body">
+          <h2 class="card-title text-center">欲しいものをまとめたい人</h2>
+          <p class="card-text text-center">会員登録後に使える機能で、自分の欲しいものを登録できます</br>
+          商品名や値段など忘れないように登録しましょう！
+          </p>
+          <a href="#" class="btn btn-primary d-block mx-auto"><i class="bi bi-person-fill-add"></i> まずは登録してみる！</button></a>
+        </div>
+      </div>
+    </div>
+
+    <div class='col'>
+      <div class="card border-info mb-3">
+        <%= image_tag 'sagasu.png', size: '300x300', class: 'mx-auto d-block' %>
+        <div class="card-body">
+          <h2 class="card-title text-center">プレゼント探してる人</h2>
+          <p class="card-text text-center">みんなの欲しいものリストを見ることができます！</br>
+          会員登録後は、予算や女性・男性向けなど
+          条件をつけて検索ができます</p>
+          <a href="#" class="btn btn-primary d-block mx-auto"><i class="bi bi-search-heart"></i> 探しに行ってみる！</button></a>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
