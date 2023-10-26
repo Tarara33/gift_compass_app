@@ -8,10 +8,9 @@ class UsersController < ApplicationController
     @user = User.new(user_params)
 
     if @user.save
-      flash[:success] = '位置情報を登録しました'
-      redirect_back_or_to root_path, status: :see_other
+      redirect_back_or_to root_path, success: t('.success')
     else
-      flash.now[:danger] = '失敗'
+      flash.now[:danger] = t('.fail')
       render :new, status: :unprocessable_entity
     end
   end
