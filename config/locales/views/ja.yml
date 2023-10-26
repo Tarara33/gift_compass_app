@@ -1,0 +1,5 @@
+ja:
+  users:
+    create:
+      success: 登録しました
+      fail: 登録に失敗しました
