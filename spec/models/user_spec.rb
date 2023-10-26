@@ -31,7 +31,7 @@ RSpec.describe User, type: :model do
         user = create(:user)
         others = build(:user, email: user.email)
         expect(others).to be_invalid
-        expect(others.errors[:email]).to include ('は既に登録されてます')
+        expect(others.errors[:email]).to include ('はすでに存在します')
       end
     end
   end
@@ -41,7 +41,7 @@ RSpec.describe User, type: :model do
       it '無効であること' do
         user = build(:user, password: nil)
         expect(user).to be_invalid
-        expect(user.errors[:password]).to include ('を入力してください')
+        expect(user.errors[:password]).to include ('は6文字以上で入力してください')
       end
     end
 
@@ -49,7 +49,7 @@ RSpec.describe User, type: :model do
       it '無効であること' do
         user = build(:user, password: 'passw')
         expect(user).to be_invalid
-        expect(user.errors[:password]).to include ('6文字以上で入力してください')
+        expect(user.errors[:password]).to include ('は6文字以上で入力してください')
       end
     end
 
@@ -57,7 +57,7 @@ RSpec.describe User, type: :model do
       it '無効であること' do
         user = build(:user, password_confirmation: '12345678')
         expect(user).to be_invalid
-        expect(user.errors[:password_confirmation]).to include ('')
+        expect(user.errors[:password_confirmation]).to include ('とパスワードの入力が一致しません')
       end
     end
   end
