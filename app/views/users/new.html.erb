@@ -1,1 +1,14 @@
-<h1>ねw</h1>
+<div class="container">
+  <div class="row">
+    <div class="col-md-10 offset-md-1 col-lg-8 offset-lg-2">
+      <h1 class='text-center my-3'>ユーザー登録</h1>
+
+      <%= form_with(model:@user, local: true) do |f| %>
+        <div class='form-class'>
+          <%= f.label :name %>
+          <%= f.text_field :name %>
+        </div>
+      <% end %>
+    </div>
+  </div>
+</div>
