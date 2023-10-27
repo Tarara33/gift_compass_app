@@ -1,0 +1,53 @@
+<%# content_for(:title, @board.title) %>
+<div class="container">
+  <div class="row mb-3">
+    <div class="col-lg-10 offset-lg-1">
+      <h1 class='text-center my-3'><i class="bi bi-cart"></i> <%= @item.user.name %>さんの欲しいもの</h1>
+
+      <div class='container'>
+        <div class="card my-3 border-info" >
+          <div class="row g-0">
+            <div class="col-md-4">
+              <%= image_tag 'item.jpg', size: '300x300', class: 'rounded mt-1 mx-auto d-block' %>
+              <h5><i class="bi bi-star-fill"></i></h5>
+            </div>
+            <div class="col-md-8">
+              <div class="card-body">
+                <div class="h4 mb-4 text-danger border-bottom border-danger">
+                  <h5 class="text-start">商品名: <span style="color: black;"><%= @item.name %></h5></span>
+                </div>
+
+                <div class="h4 mb-4 text-danger border-bottom border-danger">
+                  <h5 class="text-start">お値段: <span style="color: black;"><%= @item.price %>円</h5></span>
+                </div>
+
+                <div class="h4 mb-4 text-danger border-bottom border-danger">
+                  <h5 class="text-start">価格帯: <span style="color: black;"><%= @item.price_range %></h5></span>
+                </div>
+
+                <div class="h4 mb-4 text-danger border-bottom border-danger">
+                  <h5 class="text-start">オススメ: <span style="color: black;"><%= @item.target_gender %></h5></span>
+                </div>
+
+                <div class="h4 mb-4 text-danger border-bottom border-danger">
+                  <h5 class="text-start">タグ: <span style="color: black;"><%= @item.target_gender %></h5></span>
+                </div>
+
+                <div class="h4 mb-4 text-danger border-bottom border-danger">
+                <h5 class="text-start">URL: <span style="color: black;"><%= @item.item_url %></h5></span>
+                </div>
+
+                <h5 class="text-start text-danger">メモ:</h5>
+                <div class="border border-danger p-3" style="min-height: 5em;">
+                  <p class="card-text" style="color: red;"><%= @item.memo %></p>
+                </div>
+
+                <p class="card-text"><small class="text-body-secondary">Last updated 3 mins ago</small></p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

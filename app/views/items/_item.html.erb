@@ -1,8 +1,8 @@
 <div class="col">
   <div class="card h-100 border-info">
-    <%= image_tag 'item.jpg', size: '200x200', class: 'mx-auto d-block' %>
+    <%= image_tag 'item.jpg', size: '200x200', class: 'mt-1 mx-auto d-block' %>
     <div class="card-body">
-      <h5 class="card-title"><%= item.name %></h5>
+      <h5 class="card-title text-center"><%= link_to item.name, item_path(item) %></h5>
       <p class="card-text">タグ入れる</p>
     </div>
   </div>
