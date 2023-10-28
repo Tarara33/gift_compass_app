@@ -47,6 +47,8 @@ gem "bootsnap", require: false
 
 gem 'sorcery'
 gem 'rails-i18n', '~> 7.0.6'
+gem 'enum_help'
+gem 'font-awesome-sass'
 # Use Sass to process CSS
 # gem "sassc-rails"
 

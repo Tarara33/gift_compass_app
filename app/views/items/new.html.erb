@@ -4,25 +4,25 @@
       <h1 class='text-center my-3'>欲しいもの登録 <i class="bi bi-pencil-fill"></i></h1>
 
       <%= form_with(model:@item, local: true) do |f| %>
-        <%# render 'shared/errors', object: f.object %>
+        <%=render 'shared/errors', object: f.object %>
 
         <div class="mb-3">
           <%= label_tag do %>
-            <i class="bi bi-person-circle"></i> <%= User.human_attribute_name(:name) %>
+            <i class="bi bi-bag-heart"></i> <%= Item.human_attribute_name(:name) %>
           <% end %>
           <%= f.text_field :name, class: 'form-control' %>
         </div>
 
         <div class="mb-3">
           <%= label_tag do %>
-            <i class="bi bi-envelope-fill"></i> <%= User.human_attribute_name(:email) %>
+            <i class="bi bi-currency-yen"></i> <%= Item.human_attribute_name(:price) %>
           <% end %>
-          <%= f.text_field :email, class: 'form-control' %>
+          <%= f.number_field :price, class: 'form-control' %>
         </div>
 
         <div class="mb-3">
           <%= label_tag do %>
-            <i class="bi bi-key-fill"></i> <%= User.human_attribute_name(:password) %>
+            <i class="bi bi-currency-yen"></i> <%= Item.human_attribute_name(:price_range) %>
           <% end %>
           <%= f.text_field :password, class: 'form-control' %>
         </div>
