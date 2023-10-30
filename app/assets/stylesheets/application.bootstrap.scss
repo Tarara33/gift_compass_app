@@ -36,3 +36,13 @@ footer {
 h1 {
   font-family: 'Yusei Magic', sans-serif;
 }
+
+.required {
+  color: #ffffff;
+  background: #cc0000;
+  font-size: 0.8em;
+  padding: 0.3em;
+  border-radius: 1em;
+  margin: 0 0 0.3em 0.3em;
+  display: inline-block;
+}

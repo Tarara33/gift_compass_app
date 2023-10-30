@@ -6,8 +6,8 @@ class CreateItems < ActiveRecord::Migration[7.0]
       t.string :item_image
       t.string :item_url
       t.integer :price,            null: false
-      t.integer :price_range,      null: false, default: 0
-      t.integer :target_gender,    null: false, default: 0
+      t.integer :price_range,      null: false
+      t.integer :target_gender,    null: false
       t.text :memo
 
       t.timestamps

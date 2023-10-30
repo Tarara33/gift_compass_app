@@ -25,26 +25,3 @@ ja:
   attributes:
     created_at: 作成日
     updated_at: 更新日
-
-  enum:
-    user:
-      role:
-        general: 一般
-        admin: 管理者
-
-    item:
-      price_range:
-        upto_1000: 0~1000
-        upto_3000: 1000~3000
-        upto_6000: 3000~6000
-        upto_10000: 6000~10000
-        upto_15000: 10000~15000
-        upto_20000: 15000~20000
-        upto_25000: 20000~25000
-        upto_30000: 25000~30000
-        above_30000: 30000~
-
-      target_gender:
-        other: みんなにオススメ
-        man: 男性にオススメ
-        woman: 女性にオススメ

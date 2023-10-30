@@ -8,30 +8,44 @@
 
         <div class="mb-3">
           <%= label_tag do %>
-            <i class="bi bi-bag-heart"></i> <%= Item.human_attribute_name(:name) %>
+            <i class="bi bi-bag-heart"></i> <%= Item.human_attribute_name(:name) %><span class='required'>必須</span>
           <% end %>
           <%= f.text_field :name, class: 'form-control' %>
         </div>
 
         <div class="mb-3">
           <%= label_tag do %>
-            <i class="bi bi-currency-yen"></i> <%= Item.human_attribute_name(:price) %>
+            <i class="bi bi-currency-yen"></i> <%= Item.human_attribute_name(:price) %><span class='required'>必須</span>
           <% end %>
           <%= f.number_field :price, class: 'form-control' %>
         </div>
 
         <div class="mb-3">
           <%= label_tag do %>
-            <i class="bi bi-currency-yen"></i> <%= Item.human_attribute_name(:price_range) %>
-          <% end %>
-          <%= f.text_field :password, class: 'form-control' %>
+            <i class="bi bi-currency-yen"></i> <%= Item.human_attribute_name(:price_range) %><span class='required'>必須</span>
+          <% end %></br>
+          <%= f.select :price_range, Item.price_ranges_i18n.invert, {include_blank: '選択してください'} %>
         </div>
 
         <div class="mb-3">
           <%= label_tag do %>
-            <i class="bi bi-key-fill"></i> <%= User.human_attribute_name(:password_confirmation) %>
+            <i class="bi bi-person-heart"></i> <%= Item.human_attribute_name(:target_gender) %><span class='required'>必須</span>
+          <% end %></br>
+          <%= f.select :target_gender, Item.target_genders_i18n.invert, {include_blank: '選択してください'} %>
+        </div>
+
+        <div class="mb-3">
+          <%= label_tag do %>
+            <i class="bi bi-pc-display-horizontal"></i> <%= Item.human_attribute_name(:item_url) %>
           <% end %>
-          <%= f.text_field :password_confirmation, class: 'form-control' %>
+          <%= f.url_field :name, class: 'form-control' %>
+        </div>
+
+        <div class="mb-3">
+          <%= label_tag do %>
+            <i class="bi bi-pc-display-horizontal"></i> <%= Item.human_attribute_name(:memo) %>
+          <% end %>
+          <%= f.text_area :name, class: 'form-control', rows:5 %>
         </div>
 
         <%= f.submit class: 'btn btn-primary d-block mx-auto' %>

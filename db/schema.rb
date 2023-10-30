@@ -17,8 +17,8 @@ ActiveRecord::Schema[7.0].define(version: 2023_10_26_201326) do
     t.string "item_image"
     t.string "item_url"
     t.integer "price", null: false
-    t.integer "price_range", default: 0, null: false
-    t.integer "target_gender", default: 0, null: false
+    t.integer "price_range", null: false
+    t.integer "target_gender", null: false
     t.text "memo"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
