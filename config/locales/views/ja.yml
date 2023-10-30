@@ -1,5 +1,10 @@
 ja:
   users:
     create:
-      success: 登録しました
-      fail: 登録に失敗しました
+      success: ユーザー登録に成功しました
+      fail: ユーザー登録に失敗しました
+
+  items:
+    create:
+      success: 欲しいもの登録に成功しました
+      fail: 欲しいもの登録に失敗しました

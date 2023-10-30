@@ -14,7 +14,7 @@ ja:
         role: 権限
 
       item:
-        name: 商品名
+        item_name: 商品名
         price: お値段
         price_range: 価格帯
         target_gender: おすすめの人

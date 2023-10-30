@@ -13,7 +13,7 @@
 ActiveRecord::Schema[7.0].define(version: 2023_10_26_201326) do
   create_table "items", force: :cascade do |t|
     t.integer "user_id", null: false
-    t.string "name", null: false
+    t.string "item_name", null: false
     t.string "item_image"
     t.string "item_url"
     t.integer "price", null: false
