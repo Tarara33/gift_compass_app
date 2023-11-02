@@ -2,6 +2,7 @@ ja:
   message:
     delete_confirm: '削除しますか？'
     logout: ログアウトしますか？
+    require_login: ログインしてください
 
   users:
     create:
