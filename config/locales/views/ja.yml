@@ -1,11 +1,19 @@
 ja:
   message:
     delete_confirm: '削除しますか？'
+    logout: ログアウトしますか？
 
   users:
     create:
       success: ユーザー登録に成功しました
       fail: ユーザー登録に失敗しました
+
+  user_sessions:
+    create:
+      success: ログインに成功しました
+      fail: メールアドレス または パスワードが違います
+    destroy:
+      success: ログアウトしました
 
   items:
     create:

@@ -20,7 +20,7 @@
             <ul class="dropdown-menu dropdown-menu-end">
               <%= link_to 'プロフィール', '#', class: "dropdown-item" %>
               <%= link_to '設定', '#', class: "dropdown-item" %>
-              <%= link_to 'ログアウト', '#', method: :delete, class: "dropdown-item" %>
+              <%= link_to 'ログアウト', logout_path, data: { turbo_method: "delete", turbo_confirm: t('message.logout')}, class: "dropdown-item" %>
             </ul>
           </li>
         </ul>
