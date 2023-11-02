@@ -4,7 +4,7 @@
       <i class="bi bi-pencil"></i>
     <% end %></li>
   <li class="list-inline-item">
-    <%= link_to item_path(@item), data: { turbo_method: "delete", turbo_confirm: "削除してよろしいですか？" } do %>
+    <%= link_to item_path(@item), data: { turbo_method: "delete", turbo_confirm: t('message.delete_confirm') } do %>
       <i class="bi bi-trash"></i>
     <% end %></li>
 </ul>

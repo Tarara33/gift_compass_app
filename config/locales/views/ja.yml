@@ -1,4 +1,7 @@
 ja:
+  message:
+    delete_confirm: '削除しますか？'
+
   users:
     create:
       success: ユーザー登録に成功しました
