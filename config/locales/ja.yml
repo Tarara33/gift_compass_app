@@ -1,0 +1,33 @@
+ja:
+  activerecord:
+    errors:
+      models:
+        item:
+          attributes:
+            price_range:
+              blank: "を選択してください"
+            target_gender:
+              blank: "を選択してください"
+
+  enums:
+    user:
+      role:
+        general: 一般
+        admin: 管理者
+
+    item:
+      price_range:
+        upto_1000: 0~1000円
+        upto_3000: 1000~3000円
+        upto_6000: 3000~6000円
+        upto_10000: 6000~10000円
+        upto_15000: 10000~15000円
+        upto_20000: 15000~20000円
+        upto_25000: 20000~25000円
+        upto_30000: 25000~30000円
+        above_30000: 30000~円
+
+      target_gender:
+        other: みんなにオススメ
+        man: 男性にオススメ
+        woman: 女性にオススメ

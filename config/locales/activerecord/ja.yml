@@ -2,6 +2,7 @@ ja:
   activerecord:
     models:
       user: ユーザー
+      item: アイテム
 
     attributes:
       user:
@@ -11,6 +12,15 @@ ja:
         password_confirmation: パスワード(確認)
         icon: アイコン画像
         role: 権限
+
+      item:
+        item_name: 商品名
+        price: お値段
+        price_range: 価格帯
+        target_gender: おすすめの人
+        item_image: 商品画像
+        item_url: 商品サイト
+        
 
   attributes:
     created_at: 作成日

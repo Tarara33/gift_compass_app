@@ -1,0 +1,56 @@
+<%# content_for(:title, @board.title) %>
+<div class="container">
+  <div class="row mb-3">
+    <div class="col-lg-10 offset-lg-1">
+      <h1 class='text-center my-3'><i class="bi bi-cart"></i> <%= @item.user.name %>さんの欲しいもの</h1>
+
+      <div class='container'>
+        <div class="card my-3 border-info" >
+          <div class="row g-0">
+            <div class="col-md-4 position-relative">
+              <%= image_tag 'item.jpg', size: '300x300', class: 'rounded mt-3 mx-auto d-block' %>
+              <%= render 'crud_menus' %>
+            </div>
+
+            <div class="col-md-8">
+              <div class="card-body">
+                <div class="h4 mb-4 text-danger border-bottom border-danger">
+                  <h5 class="text-start">商品名: <span style="color: black;"><%= @item.item_name %></h5></span>
+                </div>
+
+                <div class="h4 mb-4 text-danger border-bottom border-danger">
+                  <h5 class="text-start">お値段: <span style="color: black;"><%= @item.price %>円</h5></span>
+                </div>
+
+                <div class="h4 mb-4 text-danger border-bottom border-danger">
+                  <h5 class="text-start">価格帯: <span style="color: black;"><%= @item.price_range_i18n %></h5></span>
+                </div>
+
+                <div class="h4 mb-4 text-danger border-bottom border-danger">
+                  <h5 class="text-start">オススメ: <span style="color: black;"><%= @item.target_gender_i18n %></h5></span>
+                </div>
+
+                <div class="h4 mb-4 text-danger border-bottom border-danger">
+                  <h5 class="text-start">タグ: <span style="color: black;"><%= @item.target_gender %></h5></span>
+                </div>
+
+                <div class="h4 mb-4 text-danger border-bottom border-danger">
+                  <h5 class="text-start">URL: <span style="color: black;">
+                  <% if @item.item_url.present? %>
+                    <%= link_to @item.item_url, @item.item_url, target: "_blank" %>
+                  <% end %></span>
+                  </h5>
+                </div>
+
+                <h5 class="text-start text-danger">メモ:</h5>
+                <div class="border border-danger p-2" style="min-height: 5em;">
+                  <p class="card-text no-margin"><%= simple_format(h(@item.memo)) %></p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

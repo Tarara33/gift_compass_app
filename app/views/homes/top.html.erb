@@ -6,7 +6,9 @@
     <h5>みんなの欲しいものリストを覗いてみて</br>
     あの人に渡すプレゼントの参考にしてみませんか</H5>
   </div>
-  <button class='btn btn-primary'><i class="bi bi-search-heart"></i> 探しに行く</button>
+  <%= link_to items_path, class: 'btn btn-primary top-btn' do %>
+    <i class="bi bi-search-heart"> 探しに行く</i>
+  <% end %>
 </div>
 
 <!-- 使い方の部分 -->
@@ -22,7 +24,9 @@
           <p class="card-text text-center">会員登録後に使える機能で、自分の欲しいものを登録できます</br>
           商品名や値段など忘れないように登録しましょう！
           </p>
-          <a href="#" class="btn btn-primary d-block mx-auto"><i class="bi bi-person-fill-add"></i> まずは登録してみる！</button></a>
+          <%= link_to new_user_path, class: 'btn btn-primary d-block mx-auto' do %>
+            <i class="bi bi-person-fill-add"></i> まずは登録してみる！
+          <% end %>
         </div>
       </div>
     </div>
@@ -33,9 +37,10 @@
         <div class="card-body">
           <h2 class="card-title text-center">プレゼント探してる人</h2>
           <p class="card-text text-center">みんなの欲しいものリストを見ることができます！</br>
-          会員登録後は、予算や女性・男性向けなど
-          条件をつけて検索ができます</p>
-          <a href="#" class="btn btn-primary d-block mx-auto"><i class="bi bi-search-heart"></i> 探しに行ってみる！</button></a>
+          会員登録後は、予算や女性・男性向けなど条件をつけて検索ができます</p>
+          <%= link_to items_path, class: 'btn btn-primary d-block mx-auto' do %>
+            <i class="bi bi-search-heart"></i> 探しに行ってみる！
+          <% end %>
         </div>
       </div>
     </div>
