@@ -1,4 +1,7 @@
 class ItemsController < ApplicationController
+  skip_before_action :require_login, only: %i[index]
+  before_action :set_item, only: %i[edit update destroy]
+
   def index
     @items = Item.all
   end
@@ -12,7 +15,7 @@ class ItemsController < ApplicationController
   end
 
   def create
-    @item = Item.new(item_params.merge(user_id: 1))
+    @item = current_user.items.new(item_params)
 
     if @item.save
       redirect_to item_path(@item), success: t('.success')
@@ -22,13 +25,9 @@ class ItemsController < ApplicationController
     end
   end
 
-  def edit
-    @item = Item.find(params[:id])
-  end
+  def edit; end
 
   def update
-    @item = Item.find(params[:id])
-
     if @item.update(item_params)
       redirect_to item_path(@item), success: t('.success')
     else
@@ -38,8 +37,6 @@ class ItemsController < ApplicationController
   end
 
   def destroy
-    @item = Item.find(params[:id])
-    
     @item.destroy!
     redirect_to items_path, status: :see_other, success: t('.success')
   end
@@ -47,5 +44,9 @@ class ItemsController < ApplicationController
   private
     def item_params
       params.require(:item).permit(:item_name, :price, :price_range, :target_gender, :item_url, :memo)
+    end
+
+    def set_item
+      @item = current_user.items.find(params[:id])
     end
 end
