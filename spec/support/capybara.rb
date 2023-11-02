@@ -3,5 +3,6 @@ RSpec.configure do |config|
     #driven_by :rack_test
     driven_by :selenium_chrome_headless
     #driven_by :selenium_chrome
+    Capybara.page.current_window.resize_to(1920, 1080)
   end
 end

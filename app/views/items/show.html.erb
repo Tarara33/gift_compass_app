@@ -9,7 +9,11 @@
           <div class="row g-0">
             <div class="col-md-4 position-relative">
               <%= image_tag 'item.jpg', size: '300x300', class: 'rounded mt-3 mx-auto d-block' %>
-              <%= render 'crud_menus' %>
+              <% if current_user.own?(@item) %>
+                <%= render 'crud_menus', {item: @item} %>
+              <% else %>
+                <%= render 'bookmark' %>
+              <% end %>
             </div>
 
             <div class="col-md-8">
