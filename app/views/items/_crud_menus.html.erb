@@ -1,0 +1,10 @@
+<ul class="list-inline position-absolute bottom-0 ms-3">
+  <li class="list-inline-item">
+    <%= link_to edit_item_path(@item) do %>
+      <i class="bi bi-pencil"></i>
+    <% end %></li>
+  <li class="list-inline-item">
+    <%= link_to item_path(@item), data: { turbo_method: "delete", turbo_confirm: "削除してよろしいですか？" } do %>
+      <i class="bi bi-trash"></i>
+    <% end %></li>
+</ul>

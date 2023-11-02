@@ -1,4 +1,14 @@
 ja:
+  activerecord:
+    errors:
+      models:
+        item:
+          attributes:
+            price_range:
+              blank: "を選択してください"
+            target_gender:
+              blank: "を選択してください"
+
   enums:
     user:
       role:

@@ -9,9 +9,7 @@
           <div class="row g-0">
             <div class="col-md-4 position-relative">
               <%= image_tag 'item.jpg', size: '300x300', class: 'rounded mt-3 mx-auto d-block' %>
-              <h2 class='position-absolute bottom-0 ms-3'><i class="bi bi-star-fill"></i></h2>
-              <h2 class='position-absolute bottom-0 ms-3'><i class="bi bi-pencil"></i></h2>
-              <h2 class='position-absolute bottom-0 ms-3'><i class="bi bi-trash"></i></i></h2>
+              <%= render 'crud_menus' %>
             </div>
 
             <div class="col-md-8">
@@ -45,8 +43,8 @@
                 </div>
 
                 <h5 class="text-start text-danger">メモ:</h5>
-                <div class="border border-danger p-3" style="min-height: 5em;">
-                  <p class="card-text"><%= @item.memo %></p>
+                <div class="border border-danger p-2" style="min-height: 5em;">
+                  <p class="card-text no-margin"><%= simple_format(h(@item.memo)) %></p>
                 </div>
 
                 

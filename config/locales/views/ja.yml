@@ -8,3 +8,8 @@ ja:
     create:
       success: 欲しいもの登録に成功しました
       fail: 欲しいもの登録に失敗しました
+    update:
+      success: 欲しいもの更新に成功しました
+      fail: 欲しいもの更新に失敗しました
+    destroy:
+      success: 欲しいものを削除しました

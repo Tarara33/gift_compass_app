@@ -33,10 +33,12 @@ footer {
   }
 }
 
+// 全ページ h1のフォント設定
 h1 {
   font-family: 'Yusei Magic', sans-serif;
 }
 
+// 欲しいものフォームの必須ボタン
 .required {
   color: #ffffff;
   background: #cc0000;
@@ -45,4 +47,9 @@ h1 {
   border-radius: 1em;
   margin: 0 0 0.3em 0.3em;
   display: inline-block;
+}
+
+// item#showページのメモ内の pタグのマージンを0にする
+.card-text, .no-margin {
+  margin: 0;
 }
