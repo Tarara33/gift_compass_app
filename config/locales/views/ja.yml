@@ -1,4 +1,7 @@
 ja:
+  defaults:
+    login: ログイン
+
   message:
     delete_confirm: '削除しますか？'
     logout: ログアウトしますか？
