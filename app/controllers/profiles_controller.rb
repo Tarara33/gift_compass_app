@@ -2,7 +2,7 @@ class ProfilesController < ApplicationController
 
   def show
     @user = User.find(current_user.id)
-    @items = Item.all
+    @items = current_user.items
   end
 
   def edit

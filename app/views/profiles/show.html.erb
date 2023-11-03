@@ -3,7 +3,7 @@
 
     <!-- プロフィール -->
     <div class='col-lg-3 col-md-4 col-sm-4 col-12' style='height: auto;'>
-      <div class="card my-2" style="width: 100%;">
+      <div class="card my-2 sticky-top" style="width: 100%;">
         <%= image_tag 'icon.jpeg', class: 'rounded-3 mt-2 mx-1 d-block img-fluid' %>
         <div class="card-body">
           <h4 class="card-title text-center"><%= @user.name %></h4>
@@ -21,10 +21,14 @@
     <!-- 欲しいものたち -->
     <div class='col-lg-9 col-md-8 col-sm-8 col-12 mt-2 rounded-3' style='background-color: white;'>
       <div class='container'>
-        <h1 class='text-center sticky-top mb-3' style='height: 60px; background-color: white;'>登録した欲しいものリスト<i class="bi bi-emoji-smile"></i></h1>
-        <div class="row row-cols-lg-4 row-cols-md-3 row-cols-2 g-4 overflow-auto" style='height: 100vh'>
-          <%= render partial: 'items/item', collection: @items %>
-        </div>
+        <h1 class='text-center sticky-top mb-3 z-1' style='height: 60px; background-color: white;'>登録した欲しいものリスト<i class="bi bi-emoji-smile"></i></h1>
+          <% if @items.present? %>
+            <div class="row row-cols-lg-4 row-cols-md-3 row-cols-2 g-4 overflow-auto">
+              <%= render partial: 'items/item', collection: @items %>
+            </div>
+          <% else %>
+            <p class='text-center'>まだ欲しいものたちが登録されていません...登録してね🥲！</p>
+          <% end %>
         <div style='height: 100px;'></div>
       </div>
     </div>
