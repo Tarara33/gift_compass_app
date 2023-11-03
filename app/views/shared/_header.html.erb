@@ -19,8 +19,8 @@
             </a>
             <ul class="dropdown-menu dropdown-menu-end">
               <%= link_to 'お気に入り', '#', class: "dropdown-item" %>
-              <%= link_to 'マイページ', '#', class: "dropdown-item" %>
-              <%= link_to '設定', '#', class: "dropdown-item" %>
+              <%= link_to 'マイページ', profiles_path, class: "dropdown-item" %>
+              <%= link_to '設定', edit_profiles_path, class: "dropdown-item" %>
               <%= link_to 'ログアウト', logout_path, data: { turbo_method: "delete", turbo_confirm: t('message.logout')}, class: "dropdown-item" %>
             </ul>
           </li>

@@ -1,11 +1,11 @@
 <div class="container-fluid">
   <div class="row justify-content-center">
-    <div class="row row-cols-lg-4 row-cols-md-3 row-cols-sm-2 row-cols-1 g-4">
-      <% if @items.present? %>
+    <% if @items.present? %>
+      <div class="row row-cols-lg-5 row-cols-md-4 row-cols-2 g-4">
         <%= render @items %>
-      <% else %>
-        <p>まだ欲しいものたちが登録されてません</p>
-      <% end %>
-    </div>
+      </div>
+    <% else %>
+      <p class='text-center mt-3'>まだ欲しいものたちが登録されてません！</p>
+    <% end %>
   </div>
 </div>
