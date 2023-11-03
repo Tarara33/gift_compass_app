@@ -28,3 +28,8 @@ ja:
       fail: 欲しいもの更新に失敗しました
     destroy:
       success: 欲しいものを削除しました
+
+  profiles:
+    update:
+      success: プロフィール更新に成功しました
+      fail: プロフィール更新に失敗しました

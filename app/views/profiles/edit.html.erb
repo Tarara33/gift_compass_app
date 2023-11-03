@@ -3,8 +3,8 @@
     <div class="col-md-10 offset-md-1 col-lg-8 offset-lg-2">
       <h1 class='text-center my-3'>プロフィール編集 <i class="bi bi-pencil-fill"></i></h1>
 
-      <%= form_with(model:@user, local: true) do |f| %>
-        <%# render 'shared/errors', object: f.object %>
+      <%= form_with(model:@user, url: profiles_path, local: true) do |f| %>
+        <%= render 'shared/errors', object: f.object %>
 
         <div class="mb-3">
           <%= label_tag do %>
