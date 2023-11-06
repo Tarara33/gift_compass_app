@@ -4,7 +4,7 @@
     <!-- プロフィール -->
     <div class='col-lg-3 col-md-4 col-sm-4 col-12' style='height: auto;'>
       <div class="card my-2 sticky-top" style="width: 100%;">
-        <%= image_tag 'icon.jpeg', class: 'rounded-3 mt-2 mx-1 d-block img-fluid' %>
+        <%= image_tag current_user.icon.url(:mypage), class: 'rounded-3 mt-2 mx-1 d-block img-fluid' %>
         <div class="card-body">
           <h4 class="card-title text-center"><%= @user.name %></h4>
           <p class="card-text"><i class="bi bi-gift-fill"></i> 登録した欲しいもの数: <%= @user.items.count %></p>
