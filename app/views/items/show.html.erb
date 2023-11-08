@@ -8,7 +8,7 @@
         <div class="card my-3 border-info" >
           <div class="row g-0">
             <div class="col-md-4 position-relative">
-              <%= image_tag 'item.jpg', size: '300x300', class: 'rounded mt-3 mx-auto d-block' %>
+              <%= image_tag @item.item_image.url, class: 'rounded mt-3 mx-auto d-block img-fluid' %>
               <% if current_user.own?(@item) %>
                 <%= render 'crud_menus', {item: @item} %>
               <% else %>

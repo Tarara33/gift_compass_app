@@ -36,6 +36,14 @@
     <%= f.url_field :item_url, class: 'form-control' %>
   </div>
 
+    <div class="mb-3">
+    <%= label_tag do %>
+      <i class="bi bi-image-fill"></i> <%= Item.human_attribute_name(:item_image) %>
+    <% end %>
+    <%= f.file_field :item_image, class: 'form-control', accept: 'image/*' %>
+    <%= f.hidden_field :item_image_cache %>
+  </div>
+
   <div class="mb-3">
     <%= label_tag do %>
       <i class="bi bi-pc-display-horizontal"></i> <%= Item.human_attribute_name(:memo) %>
