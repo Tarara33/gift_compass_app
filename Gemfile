@@ -49,6 +49,11 @@ gem 'sorcery'
 gem 'rails-i18n', '~> 7.0.6'
 gem 'enum_help'
 gem 'font-awesome-sass'
+
+gem 'carrierwave'
+gem 'mini_magick'
+gem 'fog-aws'
+gem 'dotenv-rails'
 # Use Sass to process CSS
 # gem "sassc-rails"
 

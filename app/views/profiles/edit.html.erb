@@ -34,6 +34,14 @@
           <%= f.password_field :password_confirmation, class: 'form-control' %>
         </div>
 
+        <div class="mb-3">
+          <%= label_tag do %>
+            <i class="bi bi-image-fill"></i> <%= User.human_attribute_name(:icon) %>
+          <% end %>
+          <%= f.file_field :icon, class: 'form-control', accept: 'image/*' %>
+          <%= f.hidden_field :icon_cache %>
+        </div>
+
         <%= f.submit class: 'btn btn-primary d-block mx-auto' %>
       <% end %>
     </div>
