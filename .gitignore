@@ -41,3 +41,4 @@
 
 # Ignore vendor
 /public/uploads
+/.env
