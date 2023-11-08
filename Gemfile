@@ -53,7 +53,6 @@ gem 'font-awesome-sass'
 gem 'carrierwave'
 gem 'mini_magick'
 gem 'fog-aws'
-gem 'dotenv-rails'
 # Use Sass to process CSS
 # gem "sassc-rails"
 
@@ -61,6 +60,7 @@ gem 'dotenv-rails'
 # gem "image_processing", "~> 1.2"
 group :production do
   gem "pg", "1.5.0"
+  gem 'aws-sdk-s3', require: false
 end
 
 group :development, :test do
