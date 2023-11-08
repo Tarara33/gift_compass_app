@@ -53,3 +53,9 @@ h1 {
 .card-text, .no-margin {
   margin: 0;
 }
+
+// _item.html.erbの画像の高さを設定
+.img-fixed-height {
+  height: 270px; /* ここに適切な高さを設定する */
+  object-fit: cover; /* 画像が歪まないように調整する */
+}

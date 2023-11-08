@@ -2,7 +2,7 @@ class ProfilesController < ApplicationController
   before_action :set_user, only: %i[show edit update]
 
   def show
-    @items = current_user.items
+    @items = current_user.items.order(created_at: :desc)
   end
 
   def edit; end
