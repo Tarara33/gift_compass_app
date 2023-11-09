@@ -16,11 +16,14 @@ class ItemsController < ApplicationController
 
   def create
     @item = current_user.items.new(item_params)
+    tag_list = params[:item][:tag_name].split(/[,、]/)
 
     if @item.save
+      @item.save_tags(tag_list)
       redirect_to item_path(@item), success: t('.success')
     else
       flash.now[:danger] = t('.fail')
+      @tag = params[:post][:tag_names].split(/[,、]/)
       render :new, status: :unprocessable_entity
     end
   end
