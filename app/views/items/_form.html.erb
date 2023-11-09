@@ -31,6 +31,13 @@
 
   <div class="mb-3">
     <%= label_tag do %>
+      <i class="bi bi-tag-fill"></i> <%= Tag.human_attribute_name(:tag_name) %>
+    <% end %>
+    <%= f.text_field :tag_name, class: 'form-control', placeholder: ",で区切って入力してください" %>
+  </div>
+
+  <div class="mb-3">
+    <%= label_tag do %>
       <i class="bi bi-pc-display-horizontal"></i> <%= Item.human_attribute_name(:item_url) %>
     <% end %>
     <%= f.url_field :item_url, class: 'form-control' %>

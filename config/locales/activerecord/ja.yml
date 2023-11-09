@@ -3,6 +3,7 @@ ja:
     models:
       user: ユーザー
       item: アイテム
+      tag: タグ
 
     attributes:
       user:
@@ -20,7 +21,9 @@ ja:
         target_gender: おすすめの人
         item_image: 商品画像
         item_url: 商品サイト
-        
+
+      tag:
+        tag_name: タグ
 
   attributes:
     created_at: 作成日

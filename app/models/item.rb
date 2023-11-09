@@ -3,9 +3,10 @@ class Item < ApplicationRecord
   
   belongs_to :user
   has_many :item_tag_relations, dependent: :destroy
-  has_many :tags, throught: :item_tag_relations
+  has_many :tags, through: :item_tag_relations
 
   validates :price, presence: true, numericality: {greater_than_or_equal_to: 0}
+  validates :item_name, length: {maximum: 25}
   with_options presence: true do
     validates :item_name, :price_range, :target_gender
   end
