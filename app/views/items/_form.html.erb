@@ -5,14 +5,14 @@
     <%= label_tag do %>
       <i class="bi bi-bag-heart"></i> <%= Item.human_attribute_name(:item_name) %><span class='required'>必須</span>
     <% end %>
-    <%= f.text_field :item_name, class: 'form-control' %>
+    <%= f.text_field :item_name, class: 'form-control', placeholder: t('placeholder.item_name_form') %>
   </div>
 
   <div class="mb-3">
     <%= label_tag do %>
       <i class="bi bi-currency-yen"></i> <%= Item.human_attribute_name(:price) %><span class='required'>必須</span>
     <% end %>
-    <%= f.number_field :price, class: 'form-control' %>
+    <%= f.number_field :price, class: 'form-control', placeholder: t('placeholder.price_form') %>
   </div>
 
   <div class="mb-3">
@@ -27,6 +27,13 @@
       <i class="bi bi-person-heart"></i> <%= Item.human_attribute_name(:target_gender) %><span class='required'>必須</span>
     <% end %></br>
     <%= f.select :target_gender, Item.target_genders_i18n.invert, {include_blank: '選択してください'} %>
+  </div>
+
+  <div class="mb-3">
+    <%= label_tag do %>
+      <i class="bi bi-tag-fill"></i> <%= Tag.human_attribute_name(:tag_name) %>
+    <% end %>
+    <%= f.text_field :tag_name, class: 'form-control', placeholder: t('placeholder.tag_name_form'), value: tags %>
   </div>
 
   <div class="mb-3">

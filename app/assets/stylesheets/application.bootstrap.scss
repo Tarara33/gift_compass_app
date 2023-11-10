@@ -50,12 +50,23 @@ h1 {
 }
 
 // item#showページのメモ内の pタグのマージンを0にする
-.card-text, .no-margin {
-  margin: 0;
+.item-show {
+  .card-text, .no-margin {
+    margin: 0;
+  }
 }
 
-// _item.html.erbの画像の高さを設定
-.img-fixed-height {
+.item {
+  // _item.html.erbの画像の高さを設定
+  .img-fixed-height {
   height: 270px; /* ここに適切な高さを設定する */
   object-fit: cover; /* 画像が歪まないように調整する */
+  }
+
+  // item#index はみ出したカードタイトルを...表記にする
+  .card-title {
+    overflow: hidden; /* はみ出たテキストを非表示にする */
+    text-overflow: ellipsis; /* はみ出たテキストの末尾に...を表示する */
+    white-space: nowrap; /* テキストを1行にする */
+  }
 }
