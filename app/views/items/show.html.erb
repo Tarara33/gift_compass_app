@@ -35,7 +35,7 @@
                 </div>
 
                 <div class="h4 mb-4 text-danger border-bottom border-danger">
-                  <h5 class="text-start">タグ: <span style="color: black;"><%= @item.target_gender %></h5></span>
+                  <h5 class="text-start">タグ: <span style="color: black;"><%= render partial: 'tag', collection: @item.tags %></h5></span>
                 </div>
 
                 <div class="h4 mb-4 text-danger border-bottom border-danger">

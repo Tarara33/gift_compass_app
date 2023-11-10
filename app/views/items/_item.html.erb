@@ -4,7 +4,7 @@
     <div class="card-body">
       <h5 class="card-title text-center"><%= link_to item.item_name, item_path(item) %></h5>
     </div>
-    <div class="card-footer text-end">
+    <div class="card-footer">
       <%= render partial: 'tag', collection: item.tags %>
     </div>
   </div>
