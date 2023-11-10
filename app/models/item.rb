@@ -16,7 +16,6 @@ class Item < ApplicationRecord
   enum target_gender:{ other: 0, man: 1, woman:2 }
 
   scope :with_tag, ->(tag_name) { preload(:tags).joins(:tags).where(tags: {tag_name: tag_name}) }
-  scope :tag_count, ->(tag_name) { includes(:tags).where(tags: { tag_name: tag_name }).count }
 
   def save_tags(tags)
     # self = @item
