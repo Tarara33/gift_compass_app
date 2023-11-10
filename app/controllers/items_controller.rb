@@ -3,12 +3,11 @@ class ItemsController < ApplicationController
   before_action :set_item, only: %i[edit update destroy]
 
   def index
-    item = if (tag_name = params[:tag_name])
-      Item.with_tag(tag_name)
+    if (tag_name = params[:tag_name])
+      @items = Item.with_tag(tag_name).order(created_at: :desc)
     else
-      Item.all
+      @items = Item.includes(:tags).order(created_at: :desc)
     end
-    @items = item.order(created_at: :desc)
   end
 
   def show
@@ -23,24 +22,28 @@ class ItemsController < ApplicationController
     @item = current_user.items.new(item_params)
     tag_list = params[:item][:tag_name].split(/[,、]/)
 
-    if @item.save
-      @item.save_tags(tag_list)
+    if @item.save && @item.save_tags(tag_list)
       redirect_to item_path(@item), success: t('.success')
     else
       flash.now[:danger] = t('.fail')
-      @tag = params[:post][:tag_names].split(/[,、]/)
+      @tags = params[:item][:tag_name].split(/[,、]/)
       render :new, status: :unprocessable_entity
     end
   end
 
-  def edit; end
+  def edit
+    @tags = @item.tags.pluck(:tag_name).join(',')
+  end
 
   def update
-    if @item.update(item_params)
+    tag_list = params[:item][:tag_name].split(/[,、]/)
+
+    if @item.update(item_params) && @item.save_tags(tag_list)
       redirect_to item_path(@item), success: t('.success')
     else
       flash.now[:danger] = t('.fail')
-      render :new, status: :unprocessable_entity
+      @tags = params[:item][:tag_name].split(/[,、]/)
+      render :edit, status: :unprocessable_entity
     end
   end
 
