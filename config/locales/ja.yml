@@ -9,6 +9,11 @@ ja:
             target_gender:
               blank: "を選択してください"
 
+  placeholder:
+    item_name_form: 25文字以内で入力してください
+    price_form: 数値で入力してください
+    tag_name_form: 「,」か「、」で区切って入力してください
+
   enums:
     user:
       role:

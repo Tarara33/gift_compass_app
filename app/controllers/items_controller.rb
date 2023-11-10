@@ -3,7 +3,12 @@ class ItemsController < ApplicationController
   before_action :set_item, only: %i[edit update destroy]
 
   def index
-    @items = Item.all.order(created_at: :desc)
+    item = if (tag_name = params[:tag_name])
+      Item.with_tag(tag_name)
+    else
+      Item.all
+    end
+    @items = item.order(created_at: :desc)
   end
 
   def show

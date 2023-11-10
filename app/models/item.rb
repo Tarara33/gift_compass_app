@@ -15,6 +15,8 @@ class Item < ApplicationRecord
                     upto_30000:  7, above_30000: 8}
   enum target_gender:{ other: 0, man: 1, woman:2 }
 
+  scope :with_tag, ->(tag_name) { joins(:tags).where(tags: {tag_name: tag_name}) }
+
   def save_tags(tags)
     # self = @item
     current_tags = self.tags.pluck(:tag_name) unless self.tags.nil?
