@@ -1,7 +1,6 @@
 class ItemsController < ApplicationController
   skip_before_action :require_login, only: %i[index]
   before_action :set_item, only: %i[edit update destroy]
-  after_action :set_tag, only: %i[show edit]
 
   def index
     if (tag_name = params[:tag_name])
@@ -13,6 +12,7 @@ class ItemsController < ApplicationController
 
   def show
     @item = Item.includes(:tags).find(params[:id])
+    @tags = @item.tags.pluck(:tag_name).join(',')
   end
 
   def new
@@ -32,7 +32,9 @@ class ItemsController < ApplicationController
     end
   end
 
-  def edit; end
+  def edit
+    @tags = @item.tags.pluck(:tag_name).join(',')
+  end
 
   def update
     tag_list = params[:item][:tag_name].split(/[,、]/)
@@ -58,9 +60,5 @@ class ItemsController < ApplicationController
 
     def set_item
       @item = current_user.items.find(params[:id])
-    end
-
-    def set_tag
-      @tags = @item.tags.pluck(:tag_name).join(',')
     end
 end
