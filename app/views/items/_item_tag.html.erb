@@ -1,1 +1,1 @@
-<%= link_to item_tag.tag_name, items_path(tag_name: item_tag.tag_name), class: "badge rounded-pill text-bg-danger text-decoration-none ms-1" %>
+<%= link_to "#{item_tag.tag_name}(#{item_tag.items_count})", items_path(tag_name: item_tag.tag_name), class: "badge rounded-pill text-bg-danger text-decoration-none ms-1" %>

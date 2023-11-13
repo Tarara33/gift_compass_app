@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_11_09_030820) do
+ActiveRecord::Schema[7.0].define(version: 2023_11_13_195216) do
   create_table "item_tag_relations", force: :cascade do |t|
     t.integer "item_id", null: false
     t.integer "tag_id", null: false
@@ -39,6 +39,7 @@ ActiveRecord::Schema[7.0].define(version: 2023_11_09_030820) do
     t.string "tag_name"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer "items_count", default: 0, null: false
     t.index ["tag_name"], name: "index_tags_on_tag_name", unique: true
   end
 
