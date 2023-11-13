@@ -5,7 +5,7 @@
       <h5 class="card-title text-center"><%= link_to item.item_name, item_path(item) %></h5>
     </div>
     <div class="card-footer overflow-auto" style='height: 50px;'>
-      <%= render partial: 'item_tag', collection: item.tags %>
+      <%= render partial: 'items/item_tag', collection: item.tags %>
     </div>
   </div>
 </div>
