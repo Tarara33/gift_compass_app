@@ -3,6 +3,8 @@ class User < ApplicationRecord
   mount_uploader :icon, UserIconUploader
 
   has_many :items, dependent: :destroy
+  has_many :favorites, dependent: :destroy
+  has_many :favorite_items, through: :favorites, sorce: :item
 
   validates :password, length: { minimum: 6 }, if: -> { new_record? || changes[:crypted_password] }
   validates :password, confirmation: true, if: -> { new_record? || changes[:crypted_password] }
