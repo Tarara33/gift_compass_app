@@ -1,0 +1,7 @@
+<div id="bookmark-button-<%= item.id %>">
+  <% if current_user.bookmark?(item) %>
+    <%= render 'bookmarks/unbookmark', {item: item} %>
+  <% else %>
+    <%= render 'bookmarks/bookmark', {item: item} %>
+  <% end %>
+</div>

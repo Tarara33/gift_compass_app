@@ -8,7 +8,7 @@
         <div class="card-body">
           <h4 class="card-title text-center"><%= @user.name %></h4>
           <p class="card-text"><i class="bi bi-gift-fill"></i> 登録した欲しいもの数: <%= @user.items.count %></p>
-          <p class="card-text"><i class="bi bi-star-fill"></i> 登録したお気に入り数: <%= @user.items.count %></p>
+          <p class="card-text" id="bookmark-count"><i class="bi bi-star-fill"></i> 登録したお気に入り数: <%= @user.favorites.count %></p>
         </div>
         <div class="card-footer text-end">
           <%= link_to edit_profiles_path do %>

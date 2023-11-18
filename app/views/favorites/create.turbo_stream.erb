@@ -1,0 +1,3 @@
+<%= turbo_stream.update "bookmark-button-#{@item.id}" do %>
+  <%= render partial: "bookmarks/unbookmark", locals: { item: @item } %>
+<% end %>

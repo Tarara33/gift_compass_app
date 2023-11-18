@@ -8,12 +8,16 @@
         <div class="card my-3 border-info" >
           <div class="row g-0">
             <div class="col-md-4 position-relative">
-              <%= image_tag @item.item_image.url, class: 'rounded mt-3 mx-auto d-block img-fluid' %>
-              <% if current_user.own?(@item) %>
-                <%= render 'crud_menus', {item: @item} %>
-              <% else %>
-                <%= render 'bookmark' %>
-              <% end %>
+              <div>
+                <%= image_tag @item.item_image.url, class: 'rounded mt-3 mx-auto d-block img-fluid' %>
+              </div>
+              <div>
+                <% if current_user.own?(@item) %>
+                  <%= render 'crud_menus', {item: @item} %>
+                <% else %>
+                  <%= render 'bookmarks/bookmark_button', {item: @item} %>
+                <% end %>
+              </div>
             </div>
 
             <div class="col-md-8">
