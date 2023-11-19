@@ -40,7 +40,7 @@ end
       tag = Tag.all.sample
     end
 
-    item.tags << Tag.all.sample
+    item.tags << tag
   end
 end
 
@@ -60,6 +60,6 @@ end
       tag = Tag.all.sample
     end
 
-    item.tags << Tag.all.sample
+    item.tags << tag
   end
 end
