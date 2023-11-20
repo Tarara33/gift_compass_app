@@ -3,6 +3,7 @@ class ProfilesController < ApplicationController
 
   def show
     @items = current_user.items.includes(:tags).order(created_at: :desc)
+    @bookmark_items = current_user.favorite_items.includes(:tags).order(created_at: :desc)
   end
 
   def edit; end

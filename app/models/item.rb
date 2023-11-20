@@ -1,9 +1,10 @@
 class Item < ApplicationRecord
   mount_uploader :item_image, ItemImageUploader
-  
+
   belongs_to :user
   has_many :item_tag_relations, dependent: :destroy
   has_many :tags, through: :item_tag_relations
+  has_many :favorites, dependent: :destroy
 
   validates :price, presence: true, numericality: {greater_than_or_equal_to: 0}
   validates :item_name, length: {maximum: 25}

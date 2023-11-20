@@ -8,7 +8,7 @@
         <div class="card-body">
           <h4 class="card-title text-center"><%= @user.name %></h4>
           <p class="card-text"><i class="bi bi-gift-fill"></i> 登録した欲しいもの数: <%= @user.items.count %></p>
-          <p class="card-text"><i class="bi bi-star-fill"></i> 登録したお気に入り数: <%= @user.items.count %></p>
+          <p class="card-text" id="bookmark-count"><i class="bi bi-star-fill"></i> 登録したお気に入り数: <%= @user.favorites.count %></p>
         </div>
         <div class="card-footer text-end">
           <%= link_to edit_profiles_path do %>
@@ -20,15 +20,44 @@
 
     <!-- 欲しいものたち -->
     <div class='col-lg-9 col-md-8 col-sm-8 col-12 mt-2 rounded-3' style='background-color: white;'>
-      <div class='container'>
-        <h1 class='text-center sticky-top mb-3 z-1' style='height: 60px; background-color: white;'>登録した欲しいものリスト<i class="bi bi-emoji-smile"></i></h1>
-          <% if @items.present? %>
-            <div class="row row-cols-lg-4 row-cols-md-3 row-cols-2 g-4 overflow-auto">
-              <%= render partial: 'items/item', collection: @items %>
-            </div>
-          <% else %>
-            <p class='text-center'>まだ欲しいものたちが登録されていません...登録してね🥲！</p>
-          <% end %>
+      <div class="container">
+        <ul class="nav nav-tabs" id="myTab" role="tablist">
+          <li class="nav-item" role="presentation">
+            <button class="nav-link active" id="mylist-tab" data-bs-toggle="tab" data-bs-target="#mylist-tab-pane" type="button" role="tab" aria-controls="mylist-tab-pane" aria-selected="true">マイリスト</button>
+          </li>
+          <li class="nav-item" role="presentation">
+            <button class="nav-link" id="bookmark-tab" data-bs-toggle="tab" data-bs-target="#bookmark-tab-pane" type="button" role="tab" aria-controls="bookmark-tab-pane" aria-selected="false">お気に入りリスト</button>
+          </li>
+        </ul>
+
+        <div class="tab-content mt-2">
+          <!-- マイリストタブ -->
+          <div class="tab-pane fade show active" id="mylist-tab-pane">
+            <!-- 欲しいものたちの表示 -->
+            <h1 class='text-center sticky-top mb-3 z-1' style='height: 60px; background-color: white;'>欲しいものリスト<i class="bi bi-emoji-smile"></i></h1>
+            <% if @items.present? %>
+              <div class="row row-cols-lg-4 row-cols-md-3 row-cols-2 g-4 overflow-auto">
+                <%= render partial: 'items/item', collection: @items %>
+              </div>
+            <% else %>
+              <p class='text-center'>まだ欲しいものたちが登録されていません...登録してね🥲！</p>
+            <% end %>
+          </div>
+
+          <!-- お気に入り登録タブ -->
+          <div class="tab-pane fade" id="bookmark-tab-pane">
+            <!-- プロフィールの表示 -->
+            <h1 class='text-center sticky-top mb-3 z-1' style='height: 60px; background-color: white;'>お気に入りリスト<i class="bi bi-emoji-smile"></i></h1>
+            <% if @bookmark_items.present? %>
+              <div class="row row-cols-lg-4 row-cols-md-3 row-cols-2 g-4 overflow-auto">
+                <%= render partial: 'items/item', collection: @bookmark_items %>
+              </div>
+            <% else %>
+              <p class='text-center'>まだお気に入りリストが登録されていません...登録してね🥲！</p>
+            <% end %>
+          </div>
+        </div>
+
         <div style='height: 100px;'></div>
       </div>
     </div>

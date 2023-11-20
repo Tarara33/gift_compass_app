@@ -1,0 +1,5 @@
+<%= link_to favorite_path(current_user.favorites.find_by(item_id: item.id)), data: { turbo_method: :delete, turbo_frame: "bookmark-button-#{item.id}" } do %>
+  <h2 class="position-absolute bottom-0 ms-3">
+    <i class="bi bi-star-fill"></i>
+  </h2>
+<% end %>
