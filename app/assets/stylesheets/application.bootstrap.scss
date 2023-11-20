@@ -70,3 +70,9 @@ h1 {
     white-space: nowrap; /* テキストを1行にする */
   }
 }
+
+// マイページのタブが選択されてる方だけ色づく
+.nav-tabs .nav-link.active {
+  background-color: #dc3545;
+  color: white;
+}
