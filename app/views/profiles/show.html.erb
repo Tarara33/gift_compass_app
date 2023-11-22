@@ -1,3 +1,4 @@
+<% content_for(:title, t('.title')) %>
 <div class='container-fluid'>
   <div class='row'>
 
@@ -7,8 +8,8 @@
         <%= image_tag current_user.icon.url(:mypage), class: 'rounded-3 mt-2 mx-1 d-block img-fluid' %>
         <div class="card-body">
           <h4 class="card-title text-center"><%= @user.name %></h4>
-          <p class="card-text"><i class="bi bi-gift-fill"></i> 登録した欲しいもの数: <%= @user.items.count %></p>
-          <p class="card-text" id="bookmark-count"><i class="bi bi-star-fill"></i> 登録したお気に入り数: <%= @user.favorites.count %></p>
+          <p class="card-text"><i class="bi bi-gift-fill"></i><%= t('.registered_items', count: @user.items.count) %></p>
+          <p class="card-text" id="bookmark-count"><i class="bi bi-star-fill"></i><%= t('.registered_bookmarks', count: @user.favorites.count) %></p>
         </div>
         <div class="card-footer text-end">
           <%= link_to edit_profiles_path do %>
@@ -23,10 +24,10 @@
       <div class="container">
         <ul class="nav nav-tabs" id="myTab" role="tablist">
           <li class="nav-item" role="presentation">
-            <button class="nav-link active" id="mylist-tab" data-bs-toggle="tab" data-bs-target="#mylist-tab-pane" type="button" role="tab" aria-controls="mylist-tab-pane" aria-selected="true">マイリスト</button>
+            <button class="nav-link active" id="mylist-tab" data-bs-toggle="tab" data-bs-target="#mylist-tab-pane" type="button" role="tab" aria-controls="mylist-tab-pane" aria-selected="true"><%= t('.mylist_tab') %></button>
           </li>
           <li class="nav-item" role="presentation">
-            <button class="nav-link" id="bookmark-tab" data-bs-toggle="tab" data-bs-target="#bookmark-tab-pane" type="button" role="tab" aria-controls="bookmark-tab-pane" aria-selected="false">お気に入りリスト</button>
+            <button class="nav-link" id="bookmark-tab" data-bs-toggle="tab" data-bs-target="#bookmark-tab-pane" type="button" role="tab" aria-controls="bookmark-tab-pane" aria-selected="false"><%= t('.bookmark_tab') %></button>
           </li>
         </ul>
 
@@ -34,26 +35,26 @@
           <!-- マイリストタブ -->
           <div class="tab-pane fade show active" id="mylist-tab-pane">
             <!-- 欲しいものたちの表示 -->
-            <h1 class='text-center sticky-top mb-3 z-1' style='height: 60px; background-color: white;'>欲しいものリスト<i class="bi bi-emoji-smile"></i></h1>
+            <h1 class='text-center sticky-top mb-3 z-1' style='height: 60px; background-color: white;'><%= t('.mylist_title') %><i class="bi bi-emoji-smile"></i></h1>
             <% if @items.present? %>
               <div class="row row-cols-lg-4 row-cols-md-3 row-cols-2 g-4 overflow-auto">
                 <%= render partial: 'items/item', collection: @items %>
               </div>
             <% else %>
-              <p class='text-center'>まだ欲しいものたちが登録されていません...登録してね🥲！</p>
+              <p class='text-center'><%= t('.no_items_message') %></p>
             <% end %>
           </div>
 
           <!-- お気に入り登録タブ -->
           <div class="tab-pane fade" id="bookmark-tab-pane">
             <!-- プロフィールの表示 -->
-            <h1 class='text-center sticky-top mb-3 z-1' style='height: 60px; background-color: white;'>お気に入りリスト<i class="bi bi-emoji-smile"></i></h1>
+            <h1 class='text-center sticky-top mb-3 z-1' style='height: 60px; background-color: white;'><%= t('.bookmark_title') %><i class="bi bi-emoji-smile"></i></h1>
             <% if @bookmark_items.present? %>
               <div class="row row-cols-lg-4 row-cols-md-3 row-cols-2 g-4 overflow-auto">
                 <%= render partial: 'items/item', collection: @bookmark_items %>
               </div>
             <% else %>
-              <p class='text-center'>まだお気に入りリストが登録されていません...登録してね🥲！</p>
+              <p class='text-center'><%= t('.no_bookmark_items_message') %></p>
             <% end %>
           </div>
         </div>

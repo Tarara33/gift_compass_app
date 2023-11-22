@@ -8,11 +8,18 @@ ja:
     require_login: ログインしてください
 
   users:
+    new:
+      title: ユーザー登録
+      to_login_page: ログインページへ
     create:
       success: ユーザー登録に成功しました
       fail: ユーザー登録に失敗しました
 
   user_sessions:
+    new:
+      title: ログイン
+      to_register_page: 登録ページへ
+      password_forget: パスワードをお忘れの方はこちら
     create:
       success: ログインに成功しました
       fail: メールアドレス または パスワードが違います
@@ -20,9 +27,18 @@ ja:
       success: ログアウトしました
 
   items:
+    index:
+      title: 欲しいもの一覧
+    show:
+      title: 欲しいもの詳細
+    new:
+      title: 欲しいもの登録
+      no_result: まだ欲しいものたちが登録されていません！
     create:
       success: 欲しいもの登録に成功しました
       fail: 欲しいもの登録に失敗しました
+    edit:
+      title: 欲しいもの編集
     update:
       success: 欲しいもの更新に成功しました
       fail: 欲しいもの更新に失敗しました
@@ -30,6 +46,18 @@ ja:
       success: 欲しいものを削除しました
 
   profiles:
+    show:
+      title: マイページ
+      registered_items: "登録した欲しいもの数: %{count}"
+      registered_bookmarks: "登録したお気に入り数: %{count}"
+      mylist_tab: マイリスト
+      bookmark_tab: お気に入り
+      mylist_title: 欲しいものリスト
+      bookmark_title: お気に入りリスト
+      no_items_message: まだ欲しいものたちが登録されていません...登録してね！
+      no_bookmark_items_message: まだお気に入りリストが登録されていません...登録してね！
+    edit:
+      title: プロフィール編集
     update:
       success: プロフィール更新に成功しました
       fail: プロフィール更新に失敗しました
