@@ -59,6 +59,20 @@
           </div>
         </div>
       </div>
+
+      <div class="row pagenation">
+        <% if @item.previous.present? %>
+          <%= link_to item_path(@item.previous), class: "col text-start" do %>
+            <h3><i class="bi bi-arrow-left-circle"></i></h3>
+          <% end %>
+        <% end %>
+        <% if @item.next.present? %>
+          <%= link_to item_path(@item.next), class: "col text-end" do %>
+            <h3><i class="bi bi-arrow-right-circle"></i></h3>
+          <% end %>
+        <% end %>
+      </div>
+
     </div>
   </div>
 </div>
