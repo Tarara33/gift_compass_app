@@ -3,10 +3,6 @@ class ProfilesController < ApplicationController
 
   def show
     @items = current_user.items.includes(:tags).order(created_at: :desc).page(params[:page])
-    respond_to do |format|
-      format.html
-      format.turbo_stream { render partial: 'mylist_tab', locals: { items: @items } }
-    end
   end
 
   def edit; end
@@ -22,10 +18,7 @@ class ProfilesController < ApplicationController
 
   def bookmark_tab
     @items = current_user.favorite_items.includes(:tags).order(created_at: :desc).page(params[:page])
-    respond_to do |format|
-      format.html {render :show}
-      format.turbo_stream { render partial: 'bookmark_tab', locals: { items: @items } }
-    end
+    render :show
   end
 
   private
