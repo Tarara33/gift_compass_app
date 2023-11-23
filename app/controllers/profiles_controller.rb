@@ -3,7 +3,6 @@ class ProfilesController < ApplicationController
 
   def show
     @items = current_user.items.includes(:tags).order(created_at: :desc).page(params[:page])
-    @bookmark_items = current_user.favorite_items.includes(:tags).order(created_at: :desc).page(params[:page])
   end
 
   def edit; end
@@ -15,6 +14,11 @@ class ProfilesController < ApplicationController
       flash.now[:danger] = t('.fail')
       render :edit, status: :unprocessable_entity
     end
+  end
+
+  def bookmark_tab
+    @items = current_user.favorite_items.includes(:tags).order(created_at: :desc).page(params[:page])
+    render :show
   end
 
   private

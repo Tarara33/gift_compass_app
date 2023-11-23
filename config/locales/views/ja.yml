@@ -55,8 +55,7 @@ ja:
       bookmark_tab: お気に入り
       mylist_title: 欲しいものリスト
       bookmark_title: お気に入りリスト
-      no_items_message: まだ欲しいものたちが登録されていません...登録してね！
-      no_bookmark_items_message: まだお気に入りリストが登録されていません...登録してね！
+      no_lists_message: まだリストが登録されていません...登録してね！
     edit:
       title: プロフィール編集
     update:

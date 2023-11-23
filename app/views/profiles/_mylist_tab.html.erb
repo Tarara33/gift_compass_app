@@ -1,0 +1,12 @@
+<!-- マイリストタブ -->
+<div class="tab-pane fade show active" id="mylist-tab-pane">
+  <!-- 欲しいものたちの表示 -->
+  <h1 class='text-center sticky-top mb-3 z-1' style='height: 60px; background-color: white;'><%= t('.mylist_title') %><i class="bi bi-emoji-smile"></i></h1>
+  <% if @items.present? %>
+    <div class="row row-cols-lg-4 row-cols-md-3 row-cols-2 g-4 overflow-auto">
+      <%= render partial: 'items/item', collection: @items %>
+    </div>
+  <% else %>
+    <p class='text-center'><%= t('.no_items_message') %></p>
+  <% end %>
+</div>
