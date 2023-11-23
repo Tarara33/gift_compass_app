@@ -3,7 +3,10 @@ class ProfilesController < ApplicationController
 
   def show
     @items = current_user.items.includes(:tags).order(created_at: :desc).page(params[:page])
-    @bookmark_items = current_user.favorite_items.includes(:tags).order(created_at: :desc).page(params[:page])
+    respond_to do |format|
+      format.html
+      format.turbo_stream { render partial: 'mylist_tab', locals: { items: @items } }
+    end
   end
 
   def edit; end
@@ -14,6 +17,14 @@ class ProfilesController < ApplicationController
     else
       flash.now[:danger] = t('.fail')
       render :edit, status: :unprocessable_entity
+    end
+  end
+
+  def bookmark_tab
+    @items = current_user.favorite_items.includes(:tags).order(created_at: :desc).page(params[:page])
+    respond_to do |format|
+      format.html {render :show}
+      format.turbo_stream { render partial: 'bookmark_tab', locals: { items: @items } }
     end
   end
 
