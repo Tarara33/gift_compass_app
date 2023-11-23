@@ -2,8 +2,8 @@ class ProfilesController < ApplicationController
   before_action :set_user, only: %i[show edit update]
 
   def show
-    @items = current_user.items.includes(:tags).order(created_at: :desc)
-    @bookmark_items = current_user.favorite_items.includes(:tags).order(created_at: :desc)
+    @items = current_user.items.includes(:tags).order(created_at: :desc).page(params[:page])
+    @bookmark_items = current_user.favorite_items.includes(:tags).order(created_at: :desc).page(params[:page])
   end
 
   def edit; end

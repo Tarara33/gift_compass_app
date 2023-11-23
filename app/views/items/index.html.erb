@@ -9,4 +9,7 @@
       <p class='text-center mt-3'>まだ欲しいものたちが登録されていません！</p>
     <% end %>
   </div>
+  <div class="d-flex justify-content-center mt-3">
+    <%= paginate @items, theme: 'bootstrap-5', class: "d-inline-flex" %>
+  </div>
 </div>
