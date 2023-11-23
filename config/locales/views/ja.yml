@@ -31,6 +31,7 @@ ja:
       title: 欲しいもの一覧
     show:
       title: 欲しいもの詳細
+      user_name: "%{name} さんの欲しいもの"
     new:
       title: 欲しいもの登録
       no_result: まだ欲しいものたちが登録されていません！
