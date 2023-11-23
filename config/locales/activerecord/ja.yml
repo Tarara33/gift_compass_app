@@ -21,6 +21,7 @@ ja:
         target_gender: おすすめの人
         item_image: 商品画像
         item_url: 商品サイト
+        memo: メモ
 
       tag:
         tag_name: タグ

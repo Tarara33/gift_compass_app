@@ -1,8 +1,8 @@
-<%# content_for(:title, @board.title) %>
+<% content_for(:title, t('.title')) %>
 <div class="container item-show">
   <div class="row mb-3">
     <div class="col-lg-10 offset-lg-1">
-      <h1 class='text-center my-3'><i class="bi bi-cart"></i> <%= @item.user.name %>さんの欲しいもの</h1>
+      <h1 class='text-center my-3'><i class="bi bi-cart"></i> <%= t('.user_name', name: @item.user.name) %></h1>
 
       <div class='container'>
         <div class="card my-3 border-info" >
@@ -23,34 +23,34 @@
             <div class="col-md-8">
               <div class="card-body">
                 <div class="h4 mb-4 text-danger border-bottom border-danger">
-                  <h5 class="text-start">商品名: <span style="color: black;"><%= @item.item_name %></h5></span>
+                  <h5 class="text-start"><%= Item.human_attribute_name('item_name') %>: <span style="color: black;"><%= @item.item_name %></h5></span>
                 </div>
 
                 <div class="h4 mb-4 text-danger border-bottom border-danger">
-                  <h5 class="text-start">お値段: <span style="color: black;"><%= @item.price %>円</h5></span>
+                  <h5 class="text-start"><%= Item.human_attribute_name('price') %>: <span style="color: black;"><%= @item.price %>円</h5></span>
                 </div>
 
                 <div class="h4 mb-4 text-danger border-bottom border-danger">
-                  <h5 class="text-start">価格帯: <span style="color: black;"><%= @item.price_range_i18n %></h5></span>
+                  <h5 class="text-start"><%= Item.human_attribute_name('price_range') %>: <span style="color: black;"><%= @item.price_range_i18n %></h5></span>
                 </div>
 
                 <div class="h4 mb-4 text-danger border-bottom border-danger">
-                  <h5 class="text-start">オススメ: <span style="color: black;"><%= @item.target_gender_i18n %></h5></span>
+                  <h5 class="text-start"><%= Item.human_attribute_name('target_gender') %>: <span style="color: black;"><%= @item.target_gender_i18n %></h5></span>
                 </div>
 
                 <div class="h4 mb-4 text-danger border-bottom border-danger">
-                  <h5 class="text-start">タグ: <span style="color: black;"><%= render partial: 'item_tag', collection: @item.tags %></h5></span>
+                  <h5 class="text-start"><%= Tag.human_attribute_name('tag_name') %>: <span style="color: black;"><%= render partial: 'item_tag', collection: @item.tags %></h5></span>
                 </div>
 
                 <div class="h4 mb-4 text-danger border-bottom border-danger">
-                  <h5 class="text-start">URL: <span style="color: black;">
+                  <h5 class="text-start"><%= Item.human_attribute_name('item_url') %>: <span style="color: black;">
                   <% if @item.item_url.present? %>
                     <%= link_to @item.item_url, @item.item_url, target: "_blank" %>
                   <% end %></span>
                   </h5>
                 </div>
 
-                <h5 class="text-start text-danger">メモ:</h5>
+                <h5 class="text-start text-danger"><%= Item.human_attribute_name('memo') %>:</h5>
                 <div class="border border-danger p-2" style="min-height: 5em;">
                   <p class="card-text no-margin"><%= simple_format(h(@item.memo)) %></p>
                 </div>
