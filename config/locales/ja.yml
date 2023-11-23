@@ -8,6 +8,14 @@ ja:
               blank: "を選択してください"
             target_gender:
               blank: "を選択してください"
+  
+  views:
+    pagination:
+      next: 次へ
+      previous: 前へ
+      truncate: "..."
+      first: 最初
+      last: 最後
 
   placeholder:
     item_name_form: 25文字以内で入力してください

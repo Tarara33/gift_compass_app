@@ -1,11 +1,11 @@
 require 'faker'
 
-User.create!(
-  name: "sarina",
-  email: "sa@com",
-  password: 'ssssss',
-  password_confirmation: 'ssssss'
-)
+# User.create!(
+#   name: "sarina",
+#   email: "sa@com",
+#   password: 'ssssss',
+#   password_confirmation: 'ssssss'
+# )
 
 10.times do |x|
   User.create!(

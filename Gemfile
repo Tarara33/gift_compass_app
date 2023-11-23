@@ -46,13 +46,21 @@ gem "tzinfo-data", platforms: %i[ mingw mswin x64_mingw jruby ]
 gem "bootsnap", require: false
 
 gem 'sorcery'
-gem 'rails-i18n', '~> 7.0.6'
-gem 'enum_help'
 gem 'font-awesome-sass'
 
+# 国際化
+gem 'rails-i18n', '~> 7.0.6'
+gem 'enum_help'
+
+# ページネーション
+gem 'kaminari'
+gem 'bootstrap5-kaminari-views'
+
+# 画像系
 gem 'carrierwave'
 gem 'mini_magick'
 gem 'fog-aws'
+
 # Use Sass to process CSS
 # gem "sassc-rails"
 

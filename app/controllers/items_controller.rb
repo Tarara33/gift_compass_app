@@ -4,9 +4,9 @@ class ItemsController < ApplicationController
 
   def index
     if (tag_name = params[:tag_name])
-      @items = Item.with_tag(tag_name).order(created_at: :desc)
+      @items = Item.with_tag(tag_name).order(created_at: :desc).page(params[:page])
     else
-      @items = Item.includes(:tags).order(created_at: :desc)
+      @items = Item.includes(:tags).order(created_at: :desc).page(params[:page])
     end
   end
 
