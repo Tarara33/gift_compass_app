@@ -18,7 +18,7 @@ RSpec.describe "Items", type: :system do
           visit root_path
           page.scroll_to :bottom
           # スクロール時間を待つ
-          sleep(Capybara.default_max_wait_time)
+          page.has_selector?('ゲストで探しに行ってみる', wait: 2)
           click_link 'ゲストで探しに行ってみる'
           expect(page).to have_current_path(items_path)
         end
@@ -35,7 +35,7 @@ RSpec.describe "Items", type: :system do
       context '欲しいものが一件もない場合' do
         it 'まだ欲しいものたちが登録されてませんというメッセージがある' do
           visit items_path
-          expect(page).to have_content('まだ欲しいものたちが登録されてません')
+          expect(page).to have_content('まだ欲しいものたちが登録されていません')
         end
       end
 
@@ -79,12 +79,18 @@ RSpec.describe "Items", type: :system do
 
           it '編集ページに移動できること' do
             visit item_path(item)
+            page.scroll_to :bottom
+            # スクロール時間を待つ
+            sleep(Capybara.default_max_wait_time)
             click_link(nil, href: edit_item_path(item))
             expect(page).to have_current_path(edit_item_path(item))
           end
 
           it '削除できること' do
             visit item_path(item)
+            page.scroll_to :bottom
+            # スクロール時間を待つ
+            sleep(Capybara.default_max_wait_time)
             page.accept_confirm do
               click_link(nil, href: item_path(item))
             end
@@ -125,7 +131,7 @@ RSpec.describe "Items", type: :system do
           select 'みんなにオススメ', from: 'item[target_gender]'
           page.scroll_to :bottom
           # スクロール時間を待つ
-          sleep(Capybara.default_max_wait_time)
+          page.has_selector?('登録する', wait: 2)
           click_button '登録する'
           expect(page).to have_content('欲しいもの登録に成功しました')
           expect(current_path).to eq(item_path(Item.last.id))
@@ -145,7 +151,7 @@ RSpec.describe "Items", type: :system do
           select 'みんなにオススメ', from: 'item[target_gender]'
           page.scroll_to :bottom
           # スクロール時間を待つ
-          sleep(Capybara.default_max_wait_time)
+          page.has_selector?('登録する', wait: 2)
           click_button '登録する'
           expect(page).to have_content('欲しいもの登録に失敗しました')
           expect(current_path).to eq(new_item_path)
@@ -158,7 +164,7 @@ RSpec.describe "Items", type: :system do
           select 'みんなにオススメ', from: 'item[target_gender]'
           page.scroll_to :bottom
           # スクロール時間を待つ
-          sleep(Capybara.default_max_wait_time)
+          page.has_selector?('登録する', wait: 2)
           click_button '登録する'
           expect(page).to have_content('欲しいもの登録に失敗しました')
           expect(current_path).to eq(new_item_path)
@@ -171,7 +177,7 @@ RSpec.describe "Items", type: :system do
           select 'みんなにオススメ', from: 'item[target_gender]'
           page.scroll_to :bottom
           # スクロール時間を待つ
-          sleep(Capybara.default_max_wait_time)
+          page.has_selector?('登録する', wait: 2)
           click_button '登録する'
           expect(page).to have_content('欲しいもの登録に失敗しました')
           expect(current_path).to eq(new_item_path)
@@ -183,7 +189,7 @@ RSpec.describe "Items", type: :system do
           select 'みんなにオススメ', from: 'item[target_gender]'
           page.scroll_to :bottom
           # スクロール時間を待つ
-          sleep(Capybara.default_max_wait_time)
+          page.has_selector?('登録する', wait: 2)
           click_button '登録する'
           expect(page).to have_content('欲しいもの登録に失敗しました')
           expect(current_path).to eq(new_item_path)
@@ -195,7 +201,7 @@ RSpec.describe "Items", type: :system do
           select '0~1000円', from: 'item[price_range]'
           page.scroll_to :bottom
           # スクロール時間を待つ
-          sleep(Capybara.default_max_wait_time)
+          page.has_selector?('登録する', wait: 2)
           click_button '登録する'
           expect(page).to have_content('欲しいもの登録に失敗しました')
           expect(current_path).to eq(new_item_path)
