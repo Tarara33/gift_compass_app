@@ -18,6 +18,10 @@ class Item < ApplicationRecord
 
   scope :with_tag, ->(tag_name) { preload(:tags).joins(:tags).where(tags: {tag_name: tag_name}) }
 
+  def self.ransackable_attributes(auth_object = nil)
+    ["item_name", "price", "price_range", "target_gender"]
+  end
+
   def save_tags(tags)
     # self = @item
     current_tags = self.tags.pluck(:tag_name) unless self.tags.nil?
