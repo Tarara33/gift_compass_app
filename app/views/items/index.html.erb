@@ -1,7 +1,9 @@
 <% content_for(:title, t('.title')) %>
 <div class="container-fluid">
   <div class="row justify-content-center">
+    <% if logged_in? %>
     <%= render 'search_form', q: @q %>
+    <% end %>
     <% if @items.present? %>
       <div class="row row-cols-lg-5 row-cols-md-4 row-cols-2 g-4">
         <%= render @items %>
