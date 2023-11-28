@@ -61,6 +61,9 @@ gem 'carrierwave'
 gem 'mini_magick'
 gem 'fog-aws'
 
+# 検索
+gem 'ransack'
+
 # Use Sass to process CSS
 # gem "sassc-rails"
 

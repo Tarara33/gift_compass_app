@@ -1,6 +1,7 @@
 class ItemsController < ApplicationController
   skip_before_action :require_login, only: %i[index]
   before_action :set_item, only: %i[edit update destroy]
+  before_action :set_search, only: %i[index search]
 
   def index
     if (tag_name = params[:tag_name])
@@ -8,6 +9,10 @@ class ItemsController < ApplicationController
     else
       @items = Item.includes(:tags).order(created_at: :desc).page(params[:page])
     end
+  end
+
+  def search
+    @items = @q.result(distinct: true).includes(:tags).order(created_at: :desc).page(params[:page])
   end
 
   def show
@@ -60,5 +65,9 @@ class ItemsController < ApplicationController
 
     def set_item
       @item = current_user.items.find(params[:id])
+    end
+
+    def set_search
+      @q = Item.ransack(params[:q])
     end
 end

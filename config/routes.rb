@@ -5,7 +5,9 @@ Rails.application.routes.draw do
   delete 'logout', to: 'user_sessions#destroy'
 
   resources :users, only: %i[new create]
-  resources :items
+  resources :items do
+    get :search, on: :collection
+  end
   resources :favorites, only: %i[create destroy]
   resource  :profiles, only: %i[show edit update] do
     get :bookmark_tab, on: :collection

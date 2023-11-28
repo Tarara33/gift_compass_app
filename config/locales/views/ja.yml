@@ -1,6 +1,7 @@
 ja:
   defaults:
     login: ログイン
+    unspecified: 選択してください
 
   message:
     delete_confirm: '削除しますか？'
@@ -29,6 +30,10 @@ ja:
   items:
     index:
       title: 欲しいもの一覧
+    search:
+      title: 検索結果
+      search_results: "検索結果 %{items} 件"
+      search_button: 検索
     show:
       title: 欲しいもの詳細
       user_name: "%{name} さんの欲しいもの"
