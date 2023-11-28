@@ -1,7 +1,7 @@
-<div id="bookmark-button-<%= item.id %>">
+<%= turbo_frame_tag "bookmark-button-#{item.id}" do %>
   <% if current_user.bookmark?(item) %>
     <%= render 'bookmarks/unbookmark', {item: item} %>
   <% else %>
     <%= render 'bookmarks/bookmark', {item: item} %>
   <% end %>
-</div>
+<% end %>

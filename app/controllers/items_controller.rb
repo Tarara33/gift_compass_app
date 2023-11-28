@@ -3,10 +3,11 @@ class ItemsController < ApplicationController
   before_action :set_item, only: %i[edit update destroy]
 
   def index
+    @q = Item.ransack(params[:q])
     if (tag_name = params[:tag_name])
-      @items = Item.with_tag(tag_name).order(created_at: :desc).page(params[:page])
+      @items = @q.result(distinct: true).with_tag(tag_name).order(created_at: :desc).page(params[:page])
     else
-      @items = Item.includes(:tags).order(created_at: :desc).page(params[:page])
+      @items = @q.result(distinct: true).includes(:tags).order(created_at: :desc).page(params[:page])
     end
   end
 
