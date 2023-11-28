@@ -1,0 +1,16 @@
+<% content_for(:title, t('.title')) %>
+<div class="container-fluid">
+  <div class="row justify-content-center">
+    <%= render 'search_form', {q: @q} %>
+
+    <h2 class="text-center"><i class="bi bi-search"></i> <%= t('.search_results', items: @items.total_count) %></h2>
+    <% if @items.present? %>
+      <div class="row row-cols-lg-5 row-cols-md-4 row-cols-2 g-4">
+        <%= render @items %>
+      </div>
+    <% end %>
+  </div>
+  <div class="d-flex justify-content-center mt-3">
+    <%= paginate @items, theme: 'bootstrap-5', class: "d-inline-flex" %>
+  </div>
+</div>

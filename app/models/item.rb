@@ -18,8 +18,13 @@ class Item < ApplicationRecord
 
   scope :with_tag, ->(tag_name) { preload(:tags).joins(:tags).where(tags: {tag_name: tag_name}) }
 
+  # ransackの検索対象設定
   def self.ransackable_attributes(auth_object = nil)
-    ["item_name", "price", "price_range", "target_gender"]
+    ["item_name", "price", "price_range", "target_gender", "tags"]
+  end
+
+  def self.ransackable_associations(auth_object = nil)
+    ["tags"]
   end
 
   def save_tags(tags)
