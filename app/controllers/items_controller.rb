@@ -4,11 +4,11 @@ class ItemsController < ApplicationController
   before_action :set_search, only: %i[index search]
 
   def index
-    if (tag_name = params[:tag_name])
-      @items = Item.with_tag(tag_name).order(created_at: :desc).page(params[:page])
-    else
-      @items = Item.includes(:tags).order(created_at: :desc).page(params[:page])
-    end
+    @items = if (tag_name = params[:tag_name])
+               Item.with_tag(tag_name).order(created_at: :desc).page(params[:page])
+             else
+               Item.includes(:tags).order(created_at: :desc).page(params[:page])
+             end
   end
 
   def search
@@ -59,15 +59,16 @@ class ItemsController < ApplicationController
   end
 
   private
-    def item_params
-      params.require(:item).permit(:item_name, :price, :price_range, :target_gender, :item_url, :memo, :item_image, :item_image_cache)
-    end
 
-    def set_item
-      @item = current_user.items.find(params[:id])
-    end
+  def item_params
+    params.require(:item).permit(:item_name, :price, :price_range, :target_gender, :item_url, :memo, :item_image, :item_image_cache)
+  end
 
-    def set_search
-      @q = Item.ransack(params[:q])
-    end
+  def set_item
+    @item = current_user.items.find(params[:id])
+  end
+
+  def set_search
+    @q = Item.ransack(params[:q])
+  end
 end
