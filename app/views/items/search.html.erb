@@ -1,4 +1,4 @@
-<% content_for(:title, t('.title')) %>
+<% set_meta_tags title: t('.title') %>
 <div class="container-fluid">
   <div class="row justify-content-center">
     <%= render 'search_form', {q: @q} %>

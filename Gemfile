@@ -64,6 +64,9 @@ gem 'fog-aws'
 # 検索
 gem 'ransack'
 
+# SEO
+gem 'meta-tags'
+
 # Use Sass to process CSS
 # gem "sassc-rails"
 
