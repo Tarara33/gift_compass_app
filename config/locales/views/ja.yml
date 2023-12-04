@@ -2,6 +2,8 @@ ja:
   defaults:
     login: ログイン
     unspecified: 選択してください
+    select: " %{choice}を選択してください"
+
 
   message:
     delete_confirm: '削除しますか？'

@@ -124,17 +124,19 @@ RSpec.describe "Items", type: :system do
           visit new_item_path
         end
 
-        it '欲しいものが登録できる' do
+        it '欲しいものが登録できる(画像も投稿できる)' do
           fill_in 'item[item_name]', with: 'テスト'
           fill_in 'item[price]', with: 120
           select '0~1000円', from: 'item[price_range]'
           select 'みんなにオススメ', from: 'item[target_gender]'
+          attach_file 'item[item_image]', "#{Rails.root}/spec/fixtures/images/test.jpeg"
           page.scroll_to :bottom
           # スクロール時間を待つ
           page.has_selector?('登録する', wait: 2)
           click_button '登録する'
           expect(page).to have_content('欲しいもの登録に成功しました')
           expect(current_path).to eq(item_path(Item.last.id))
+          expect(page).to have_selector("img[src$= 'test.jpeg']")
         end
       end
 

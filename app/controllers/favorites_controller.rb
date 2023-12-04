@@ -1,5 +1,4 @@
 class FavoritesController < ApplicationController
-
   def create
     @item = Item.find(params[:item_id])
     current_user.bookmark(@item)
