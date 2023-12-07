@@ -70,6 +70,7 @@ gem 'meta-tags'
 
 # 環境変数管理
 gem 'config'
+gem 'dotenv-rails'
 
 # Use Sass to process CSS
 # gem "sassc-rails"
