@@ -1,6 +1,7 @@
 ja:
   defaults:
     login: ログイン
+    logout: ログアウト
     unspecified: 選択してください
     select: " %{choice}を選択してください"
 
@@ -68,3 +69,9 @@ ja:
     update:
       success: プロフィール更新に成功しました
       fail: プロフィール更新に失敗しました
+
+  homes:
+    privacy_policy:
+      title: プライバシーポリシー
+    terms_of_service:
+      title: 利用規約
