@@ -75,3 +75,7 @@ ja:
       title: プライバシーポリシー
     terms_of_service:
       title: 利用規約
+
+  password_resets:
+    new:
+      title: パスワードリセット

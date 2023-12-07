@@ -1,8 +1,4 @@
 Rails.application.routes.draw do
-  get 'reset_password/new'
-  get 'reset_password/create'
-  get 'reset_password/edit'
-  get 'reset_password/update'
   root   'homes#top'
   get    'login',             to: 'user_sessions#new'
   post   'login',             to: 'user_sessions#create'
@@ -18,6 +14,9 @@ Rails.application.routes.draw do
   resource  :profiles, only: %i[show edit update] do
     get :bookmark_tab, on: :collection
   end
-  
-  resources :password_resets, only: %i[new create dit update]
+
+  resource :password_resets, only: %i[new create edit update]
+  if Rails.env.development?
+    mount LetterOpenerWeb::Engine, at: '/letter_opener'
+  end
 end

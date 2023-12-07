@@ -1,5 +1,13 @@
-<p><%= @user.name %>様</p>
-<p>パスワード再発行のご依頼を受け付けました。</p>
-<p>こちらのリンクからパスワードの再発行を行ってください。</p>
-<p><パスワードリセット用リンク></p>
-<a href = "<%= @url %>"><%= @url %></a>
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <style>
+      /* Email styles need to be inline */
+    </style>
+  </head>
+
+  <body>
+    <%= yield %>
+  </body>
+</html>
