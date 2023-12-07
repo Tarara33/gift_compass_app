@@ -1,6 +1,7 @@
 ja:
   defaults:
     login: ログイン
+    logout: ログアウト
     unspecified: 選択してください
     select: " %{choice}を選択してください"
 
