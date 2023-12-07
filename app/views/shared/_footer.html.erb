@@ -1,7 +1,7 @@
 <footer class='fixed-bottom mt-3'>
   <div class='container-lg d-flex justify-content-end footer-link'>
     <%= link_to 'お問い合わせ', '#', class: 'footer-item' %>
-    <%= link_to '利用規約', '#', class: 'footer-item' %>
+    <%= link_to t('homes.terms_of_service.title'), terms_of_service_path, class: 'footer-item' %>
     <%= link_to t('homes.privacy_policy.title'), privacy_policy_path, class: 'footer-item' %>
   </div>
   <div class='copyliter'>
