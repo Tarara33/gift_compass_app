@@ -7,7 +7,7 @@ def default_meta_tags
       description: 'Gift Conpassはあなたのギフト選びをサポートします。',
       keywords: 'Gift, Conpass, ギフト, プレゼント, 欲しいもの',
       canonical: request.original_url,
-      separator: '|',
+      separator: '☆',
       icon: [
         { href: image_url('app_icon.png') }
       ]
