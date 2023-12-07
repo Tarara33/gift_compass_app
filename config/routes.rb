@@ -18,5 +18,6 @@ Rails.application.routes.draw do
   resource  :profiles, only: %i[show edit update] do
     get :bookmark_tab, on: :collection
   end
-
+  
+  resources :password_resets, only: %i[new create dit update]
 end
