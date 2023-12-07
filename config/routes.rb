@@ -1,4 +1,8 @@
 Rails.application.routes.draw do
+  get 'reset_password/new'
+  get 'reset_password/create'
+  get 'reset_password/edit'
+  get 'reset_password/update'
   root   'homes#top'
   get    'login',             to: 'user_sessions#new'
   post   'login',             to: 'user_sessions#create'
