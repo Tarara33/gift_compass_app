@@ -15,7 +15,7 @@ Rails.application.routes.draw do
     get :bookmark_tab, on: :collection
   end
 
-  resource :password_resets, only: %i[new create edit update]
+  resources :password_resets, only: %i[new create edit update]
   if Rails.env.development?
     mount LetterOpenerWeb::Engine, at: '/letter_opener'
   end

@@ -13,7 +13,7 @@ class PasswordResetsController < ApplicationController
   def edit
     @token = params[:id]
     @user = User.load_from_reset_password_token(params[:id])
-
+    
     if @user.blank?
       not_authenticated
       return
@@ -34,7 +34,7 @@ class PasswordResetsController < ApplicationController
     if @user.change_password(params[:user][:password])
       redirect_to login_path, success: 'パスワードをリセットしました'
     else
-      render :edit
+      render :edit, status: :unprocessable_entity
     end
   end
 end

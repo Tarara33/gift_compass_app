@@ -92,7 +92,7 @@ Rails.application.configure do
   config.active_record.dump_schema_after_migration = false
 
   config.action_mailer.delivery_method = :smtp
-  config.action_mailer.default_url_options = { host: '本番環境のホスト名', port: '本番環境のポート番号' }
+  config.action_mailer.default_url_options = { host: 'gift-compass.onrender.com', port: '本番環境のポート番号' }
   config.action_mailer.smtp_settings = {
     port:                 587,
     address:              'smtp.gmail.com',

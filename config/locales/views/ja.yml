@@ -79,3 +79,5 @@ ja:
   password_resets:
     new:
       title: パスワードリセット
+    edit:
+      title: パスワード変更
