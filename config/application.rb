@@ -15,6 +15,9 @@ module GiftCompassApp
     config.i18n.load_path += Dir[Rails.root.join("config/locales/**/*.{rb,yml}")]
     config.active_record.default_timezone = :local
     config.time_zone = 'Asia/Tokyo'
+    
+    # メーラーのプレビューをspecファイルにする
+    config.action_mailer.preview_path = "#{Rails.root}/spec/mailers/previews"
 
     config.generators do |g|
       g.helper false
