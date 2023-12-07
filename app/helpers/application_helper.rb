@@ -1,11 +1,11 @@
 module ApplicationHelper
 def default_meta_tags
     {
-      site: 'Gift Conpass',
+      site: 'Gift Compass',
       reverse: true,
       charset: 'utf-8',
-      description: 'Gift Conpassはあなたのギフト選びをサポートします。',
-      keywords: 'Gift, Conpass, ギフト, プレゼント, 欲しいもの',
+      description: 'Gift Compassはあなたのギフト選びをサポートします。',
+      keywords: 'Gift, Compass, ギフト, プレゼント, 欲しいもの',
       canonical: request.original_url,
       separator: '☆',
       icon: [
