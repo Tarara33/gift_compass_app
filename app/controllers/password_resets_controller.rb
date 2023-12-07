@@ -7,7 +7,7 @@ class PasswordResetsController < ApplicationController
     @user = User.find_by_email(params[:email])
 
     @user.deliver_reset_password_instructions! if @user
-    redirect_to login_path, success: 'パスワードリセットを受け付けました'
+    redirect_to login_path, success: t('.success')
   end
 
   def edit
@@ -32,7 +32,7 @@ class PasswordResetsController < ApplicationController
     @user.password_confirmation = params[:user][:password_confirmation]
 
     if @user.change_password(params[:user][:password])
-      redirect_to login_path, success: 'パスワードをリセットしました'
+      redirect_to login_path, success: t('.success')
     else
       render :edit, status: :unprocessable_entity
     end
