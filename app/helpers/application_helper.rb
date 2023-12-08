@@ -13,7 +13,7 @@ def default_meta_tags
       ],
       # Twitter Card
       twitter: {
-        card: 'summary_large_image',
+        card: 'summary',
         title: 'Gift Compass',
         description: 'Gift Compassはあなたのギフト選びをサポートします。',
         image: image_url('/app/assets/images/logo.jpg'),
