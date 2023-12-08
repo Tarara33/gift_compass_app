@@ -16,7 +16,7 @@ def default_meta_tags
         card: 'summary',
         title: 'Gift Compass',
         description: 'Gift Compassはあなたのギフト選びをサポートします。',
-        image: image_url('/app/assets/images/summary_icon.png'),
+        image: image_url('summary_icon.png'),
       }
     }
   end
