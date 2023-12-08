@@ -1,0 +1,29 @@
+<% set_meta_tags title: t('.title') %>
+<div class="container">
+  <div class="row">
+    <div class="col-md-10 offset-md-1 col-lg-8 offset-lg-2">
+      <h1 class='text-center my-3'><%= t('.title') %></h1>
+
+      <%= form_with(model: @user, url: password_reset_path, local: true) do |f| %>
+        <%= render 'shared/errors', object: f.object %>
+
+        <div class="mb-3">
+          <%= label_tag do %>
+            <i class="bi bi-key-fill"></i> <%= User.human_attribute_name(:password) %>
+          <% end %>
+          <%= f.password_field :password, class: 'form-control' %>
+        </div>
+
+        <div class="mb-3">
+          <%= label_tag do %>
+            <i class="bi bi-key-fill"></i> <%= User.human_attribute_name(:password_confirmation) %>
+          <% end %>
+          <%= f.password_field :password_confirmation, class: 'form-control' %>
+        </div>
+
+        <%= f.submit class: 'btn btn-primary d-block mx-auto' %>
+      <% end %>
+
+    </div>
+  </div>
+</div>

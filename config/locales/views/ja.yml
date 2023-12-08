@@ -75,3 +75,14 @@ ja:
       title: プライバシーポリシー
     terms_of_service:
       title: 利用規約
+
+  password_resets:
+    new:
+      title: パスワードリセット
+      send: 送信
+    create:
+      success: パスワードリセットを受け付けました
+    edit:
+      title: パスワード変更
+    update:
+      success: パスワードをリセットしました

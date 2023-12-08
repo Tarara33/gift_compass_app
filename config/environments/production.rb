@@ -90,4 +90,15 @@ Rails.application.configure do
 
   # Do not dump schema after migrations.
   config.active_record.dump_schema_after_migration = false
+  config.action_mailer.delivery_method = :smtp
+  config.action_mailer.default_url_options = { protocol: 'https', host: 'gift-compass.onrender.com'}
+  config.action_mailer.smtp_settings = {
+    port:                 587,
+    address:              'smtp.gmail.com',
+    domain:               'gmail.com',
+    user_name:            ENV['GMAIL_ADDRESS'],
+    password:             ENV['GMAIL_PASSWORD'],
+    authentication:       'login',
+    enable_starttls_auto: true
+  }
 end
