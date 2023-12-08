@@ -7,4 +7,12 @@
     <%= link_to item_path(item), id: "button-delete-#{item.id}", data: { turbo_method: "delete", turbo_confirm: t('message.delete_confirm') } do %>
       <i class="bi bi-trash"></i>
     <% end %></li>
+
+    <li class="twitter list-inline-item">
+      <%= link_to "https://twitter.com/share?url=#{ root_url }&text=【%20#{item.user.name}さんの欲しいものが投稿されました！】
+      %0a%0a#{ item.item_name }、が欲しいなぁ〜🎁
+      %0a%23プレゼント探し%20%23ギフトコンパス%20%23欲しいもの",
+      target: '_blank' do %>
+      <i class="bi bi-twitter"></i>アピールする!!
+      <% end %></li>
 </ul>

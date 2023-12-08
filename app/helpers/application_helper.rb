@@ -10,7 +10,14 @@ def default_meta_tags
       separator: '☆',
       icon: [
         { href: image_url('app_icon.png') }
-      ]
+      ],
+      # Twitter Card
+      twitter: {
+        card: 'summary',
+        title: 'Gift Compass',
+        description: 'Gift Compassはあなたのギフト選びをサポートします。',
+        image: image_url('summary_icon.png'),
+      }
     }
   end
 end
