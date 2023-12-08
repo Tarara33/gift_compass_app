@@ -9,7 +9,7 @@
     <% end %></li>
 
     <li class="twitter list-inline-item">
-      <%= link_to "https://twitter.com/share?url=#{ request.url }&text=【%20#{item.user.name}さんの欲しいものが投稿されました！】
+      <%= link_to "https://twitter.com/share?url=#{ root_path }&text=【%20#{item.user.name}さんの欲しいものが投稿されました！】
       %0a%0a#{ item.item_name }、が欲しいなぁ〜🎁
       %0a%23プレゼント探し%20%23ギフトコンパス%20%23欲しいもの",
       target: '_blank' do %>
