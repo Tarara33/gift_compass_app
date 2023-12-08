@@ -418,12 +418,12 @@ Rails.application.config.sorcery.configure do |config|
     # How many seconds before the reset request expires. nil for never expires.
     # Default: `nil`
     #
-    user.reset_password_expiration_period = 24 * 3600
+    #user.reset_password_expiration_period = 24 * 3600
 
     # Hammering protection: how long in seconds to wait before allowing another email to be sent.
     # Default: `5 * 60`
     #
-    # user.reset_password_time_between_emails =
+    user.reset_password_time_between_emails = 1
 
     # Access counter to a reset password page attribute name
     # Default: `:access_count_to_reset_password_page`

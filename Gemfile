@@ -72,6 +72,8 @@ gem 'meta-tags'
 gem 'config'
 gem 'dotenv-rails'
 
+gem 'pry-rails'
+
 # Use Sass to process CSS
 # gem "sassc-rails"
 
