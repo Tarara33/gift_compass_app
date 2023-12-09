@@ -47,28 +47,28 @@
 
 - 登録ユーザー
 	- ログイン・ログアウトができる(メール・パスワード)
+	- パスワードを忘れた時にパスワードリセットができる。
 	- ユーザー編集ができる
 	- 欲しいもの一覧ページが見れる
 	- 欲しいものを登録できる
+	- 登録したことをSNSで共有できる
+	- 他者の欲しいものをお気に入りできる
 	- タグ(年代、性別、予算)など絞って検索できる
 
 ### その後の機能予定
 - 未登録ユーザー
   	- API認証
-  	
+
 - 登録ユーザー
-	- パスワードを忘れた時にパスワードリセットができる。
-  	- マルチ検索・オートコンプリート
-  	- 登録したことをSNSで共有できる
-	- 他者の欲しいものをお気に入りできる
+  - マルチ検索・オートコンプリート
 
 - 管理人
 	- 全てのユーザーのCRUD
 	- 全ての欲しいもののCRUD
 ***
 
+## ER図
+[URL][![Image from Gyazo](https://i.gyazo.com/013de1cce9a163a0ea2db08ac0ba95e1.png)](https://gyazo.com/013de1cce9a163a0ea2db08ac0ba95e1)
+
 ## 画面遷移図
 [URL](https://www.figma.com/file/oQcimUU0YsDNTuvM9dUCBt/Gift-Compass-%E7%94%BB%E9%9D%A2%E9%81%B7%E7%A7%BB%E5%9B%B3?type=design&node-id=0%3A1&mode=design&t=lG1WTykRUoKa6vrW-1)
-
-## ER図
-[URL](https://gyazo.com/8723bbe48d5b4940a2eb65085a6a7d22)
