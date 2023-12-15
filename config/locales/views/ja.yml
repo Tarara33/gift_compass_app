@@ -32,7 +32,7 @@ ja:
 
   items:
     index:
-      title: 欲しいもの一覧
+      title: みんなの欲しいもの
     search:
       title: 検索結果
       search_results: "検索結果 %{items} 件"
@@ -61,7 +61,7 @@ ja:
       registered_bookmarks: "登録したお気に入り数: %{count}"
       mylist_tab: マイリスト
       bookmark_tab: お気に入り
-      mylist_title: 欲しいものリスト
+      mylist_title: 自分の欲しいものリスト
       bookmark_title: お気に入りリスト
       no_lists_message: まだリストが登録されていません...登録してね！
     edit:
