@@ -69,6 +69,24 @@ h1 {
     text-overflow: ellipsis; /* はみ出たテキストの末尾に...を表示する */
     white-space: nowrap; /* テキストを1行にする */
   }
+
+  // item#index はみ出したタグを...表記にする
+  .card-footer {
+    overflow: hidden; /* はみ出たテキストを非表示にする */
+    text-overflow: ellipsis; /* はみ出たテキストの末尾に...を表示する */
+    white-space: nowrap; /* テキストを1行にする */
+  }
+
+  .tags {
+    display: inline-block;
+  }
+
+  .card-footer:hover {
+    overflow: visible;
+    white-space: normal;
+    z-index: 1;
+  }
+
 }
 
 // マイページのタブが選択されてる方だけ色づく
