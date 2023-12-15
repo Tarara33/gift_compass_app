@@ -76,11 +76,8 @@ h1 {
     text-overflow: ellipsis; /* はみ出たテキストの末尾に...を表示する */
     white-space: nowrap; /* テキストを1行にする */
   }
-
-  .tags {
-    display: inline-block;
-  }
-
+  
+  // タグホバー時に全表示にする
   .card-footer:hover {
     overflow: visible;
     white-space: normal;
