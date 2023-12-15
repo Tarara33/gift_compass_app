@@ -2,7 +2,7 @@
   <div class="card h-100 border-info">
     <%= image_tag item.item_image.url, class: 'mt-1 mx-1 d-block img-fluid img-fixed-height' %>
     <div class="card-body">
-      <h5 class="card-title text-center"><%= link_to item.item_name, item_path(item), data: { bs_toggle: "tooltip", bs_placement: "top", bs_title: item.item_name } %></h5>
+      <h5 class="card-title text-center"><%= link_to item.item_name, item_path(item) %></h5>
     </div>
     <div class="card-footer" style='height: 50px;'>
       <%= render partial: 'items/item_tag', collection: item.tags %>
