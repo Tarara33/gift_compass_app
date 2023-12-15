@@ -1,1 +1,5 @@
-<%= link_to "#{item_tag.tag_name}(#{item_tag.items_count})", items_path(tag_name: item_tag.tag_name), class: "badge rounded-pill text-bg-danger text-decoration-none ms-1" %>
+<div class="tags">
+  <div class="tag">
+    <%= link_to "#{item_tag.tag_name}(#{item_tag.items_count})", items_path(tag_name: item_tag.tag_name), class: " tag-hover badge rounded-pill text-bg-danger text-decoration-none ms-1" %>
+  </div>
+</div>
