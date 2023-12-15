@@ -12,6 +12,17 @@ class ItemsController < ApplicationController
   end
 
   def search
+    search_params = params[:q]
+
+    if search_params && search_params[:target_gender_in] == '1'
+      search_params[:target_gender_in] = ['1', '0']
+    elsif search_params && search_params[:target_gender_in] == '2'
+      search_params[:target_gender_in] = ['2', '0']
+      
+    end
+
+    # 更新したsearch_paramsを@qに再度適用する
+    @q = Item.ransack(search_params)
     @items = @q.result(distinct: true).includes(:tags).order(created_at: :desc).page(params[:page])
   end
 

@@ -8,7 +8,7 @@
                   { include_blank: t('defaults.select', choice: Item.human_attribute_name('price_range')) },
                   class: 'form-control me-2', placeholder: Item.human_attribute_name('price_range') %>
 
-    <%= f.select :target_gender_eq, Item.target_genders_i18n.invert.map{|key, value| [key, Item.target_genders[value]]},
+    <%= f.select :target_gender_in, Item.target_genders_i18n.invert.map{|key, value| [key, Item.target_genders[value]]},
                   { include_blank: t('defaults.select', choice: Item.human_attribute_name('target_gender')) },
                   class: 'form-control me-2', placeholder: Item.human_attribute_name('target_gender') %>
 
