@@ -18,9 +18,7 @@ class ItemsController < ApplicationController
       search_params[:target_gender_in] = ['1', '0']
     elsif search_params && search_params[:target_gender_in] == '2'
       search_params[:target_gender_in] = ['2', '0']
-      
     end
-
     # 更新したsearch_paramsを@qに再度適用する
     @q = Item.ransack(search_params)
     @items = @q.result(distinct: true).includes(:tags).order(created_at: :desc).page(params[:page])
@@ -37,15 +35,19 @@ class ItemsController < ApplicationController
 
   def create
     @item = current_user.items.new(item_params)
-    tag_list = params[:item][:tag_name].split(/[,、]/)
+    tag_list = tag_list_from_params
 
-    if @item.save && @item.save_tags(tag_list)
-      redirect_to item_path(@item), success: t('.success')
-    else
-      flash.now[:danger] = t('.fail')
-      @tags = params[:item][:tag_name].split(/[,、]/)
-      render :new, status: :unprocessable_entity
+    ActiveRecord::Base.transaction do
+      @item.save!
+      @item.save_tags(tag_list)
     end
+
+    redirect_to item_path(@item), success: t('.success')
+
+  rescue => e
+      flash.now[:danger] = t('.fail')
+      @tags = tag_list_from_params
+      render :new, status: :unprocessable_entity
   end
 
   def edit
@@ -53,15 +55,19 @@ class ItemsController < ApplicationController
   end
 
   def update
-    tag_list = params[:item][:tag_name].split(/[,、]/)
+    tag_list = tag_list_from_params
 
-    if @item.update(item_params) && @item.save_tags(tag_list)
-      redirect_to item_path(@item), success: t('.success')
-    else
-      flash.now[:danger] = t('.fail')
-      @tags = params[:item][:tag_name].split(/[,、]/)
-      render :edit, status: :unprocessable_entity
+    ActiveRecord::Base.transaction do
+      @item.update!(item_params)
+      @item.save_tags(tag_list)
     end
+
+    redirect_to item_path(@item), success: t('.success')
+
+    rescue => e
+      flash.now[:danger] = t('.fail')
+      @tags = tag_list_from_params
+      render :edit, status: :unprocessable_entity
   end
 
   def destroy
@@ -81,5 +87,9 @@ class ItemsController < ApplicationController
 
   def set_search
     @q = Item.ransack(params[:q])
+  end
+
+  def tag_list_from_params
+    params[:item][:tag_name].to_s.split(/[,、]/)
   end
 end
