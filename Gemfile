@@ -67,6 +67,7 @@ gem 'ransack'
 
 # SEO
 gem 'meta-tags'
+gem 'sitemap_generator'
 
 # 環境変数管理
 gem 'config'
