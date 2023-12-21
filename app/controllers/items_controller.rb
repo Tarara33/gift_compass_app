@@ -15,9 +15,9 @@ class ItemsController < ApplicationController
     search_params = params[:q]
 
     if search_params && search_params[:target_gender_in] == '1'
-      search_params[:target_gender_in] = ['1', '0']
+      search_params[:target_gender_in] = %w[1 0]
     elsif search_params && search_params[:target_gender_in] == '2'
-      search_params[:target_gender_in] = ['2', '0']
+      search_params[:target_gender_in] = %w[2 0]
     end
     # 更新したsearch_paramsを@qに再度適用する
     @q = Item.ransack(search_params)
@@ -43,11 +43,10 @@ class ItemsController < ApplicationController
     end
 
     redirect_to item_path(@item), success: t('.success')
-
-  rescue => e
-      flash.now[:danger] = t('.fail')
-      @tags = tag_list_from_params
-      render :new, status: :unprocessable_entity
+  rescue StandardError => e
+    flash.now[:danger] = t('.fail')
+    @tags = tag_list_from_params
+    render :new, status: :unprocessable_entity
   end
 
   def edit
@@ -63,11 +62,10 @@ class ItemsController < ApplicationController
     end
 
     redirect_to item_path(@item), success: t('.success')
-
-    rescue => e
-      flash.now[:danger] = t('.fail')
-      @tags = tag_list_from_params
-      render :edit, status: :unprocessable_entity
+  rescue StandardError => e
+    flash.now[:danger] = t('.fail')
+    @tags = tag_list_from_params
+    render :edit, status: :unprocessable_entity
   end
 
   def destroy
