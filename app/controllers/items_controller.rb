@@ -1,5 +1,5 @@
 class ItemsController < ApplicationController
-  skip_before_action :require_login, only: %i[index]
+  skip_before_action :require_login, only: %i[index show]
   before_action :set_item, only: %i[edit update destroy]
   before_action :set_search, only: %i[index search]
 

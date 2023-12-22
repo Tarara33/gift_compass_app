@@ -17,4 +17,9 @@ SitemapGenerator::Sitemap.create do
 
   # アイテム一覧ページ
   add items_path, priority: 0.7, changefreq: 'daily'
+
+  # アイテム詳細ページ
+  Item.find_each do |item|
+    add item_path(item), lastmod: item.updated_at
+  end
 end
