@@ -2,7 +2,7 @@
 <div class="container item-show">
   <div class="row mb-3">
     <div class="col-lg-10 offset-lg-1">
-      <h1 class='text-center my-3'><i class="bi bi-cart"></i> <%= t('.user_name', name: @item.user.name) %></h1>
+      <h1 class='text-center my-3'><%= image_tag @item.user.icon.url(:icon), class: "rounded-circle mr15", width: "50px", height: "50px" %> <%= t('.user_name', name: @item.user.name) %></h1>
 
       <div class='container'>
         <div class="card my-3 border-info" >
@@ -12,10 +12,12 @@
                 <%= image_tag @item.item_image.url, class: 'rounded mt-3 mx-auto d-block img-fluid' %>
               </div>
               <div>
-                <% if current_user.own?(@item) %>
-                  <%= render 'crud_menus', {item: @item} %>
-                <% else %>
-                  <%= render 'bookmarks/bookmark_button', {item: @item} %>
+                <% if logged_in? %>
+                  <% if current_user.own?(@item) %>
+                    <%= render 'crud_menus', {item: @item} %>
+                  <% else %>
+                    <%= render 'bookmarks/bookmark_button', {item: @item} %>
+                  <% end %>
                 <% end %>
               </div>
             </div>
