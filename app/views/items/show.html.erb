@@ -12,10 +12,12 @@
                 <%= image_tag @item.item_image.url, class: 'rounded mt-3 mx-auto d-block img-fluid' %>
               </div>
               <div>
-                <% if current_user.own?(@item) %>
-                  <%= render 'crud_menus', {item: @item} %>
-                <% else %>
-                  <%= render 'bookmarks/bookmark_button', {item: @item} %>
+                <% if logged_in? %>
+                  <% if current_user.own?(@item) %>
+                    <%= render 'crud_menus', {item: @item} %>
+                  <% else %>
+                    <%= render 'bookmarks/bookmark_button', {item: @item} %>
+                  <% end %>
                 <% end %>
               </div>
             </div>
