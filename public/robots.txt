@@ -2,3 +2,5 @@
 
 User-agent: *
 Disallow:
+
+Sitemap: https://gift-compass.com/sitemap.xml.gz

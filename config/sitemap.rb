@@ -1,5 +1,5 @@
 # Set the host name for URL creation
-SitemapGenerator::Sitemap.default_host = "http://gift-compass.com"
+SitemapGenerator::Sitemap.default_host = "https://gift-compass.com"
 
 SitemapGenerator::Sitemap.create do
   # 静的ページ
