@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_12_07_120007) do
+ActiveRecord::Schema[7.0].define(version: 2023_12_30_073014) do
   create_table "favorites", force: :cascade do |t|
     t.integer "user_id", null: false
     t.integer "item_id", null: false
@@ -18,6 +18,12 @@ ActiveRecord::Schema[7.0].define(version: 2023_12_07_120007) do
     t.datetime "updated_at", null: false
     t.index ["item_id"], name: "index_favorites_on_item_id"
     t.index ["user_id"], name: "index_favorites_on_user_id"
+  end
+
+  create_table "genres", force: :cascade do |t|
+    t.string "name"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   create_table "item_tag_relations", force: :cascade do |t|
@@ -41,7 +47,17 @@ ActiveRecord::Schema[7.0].define(version: 2023_12_07_120007) do
     t.text "memo"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer "situation_id"
+    t.integer "genre_id"
+    t.index ["genre_id"], name: "index_items_on_genre_id"
+    t.index ["situation_id"], name: "index_items_on_situation_id"
     t.index ["user_id"], name: "index_items_on_user_id"
+  end
+
+  create_table "situations", force: :cascade do |t|
+    t.string "name"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   create_table "tags", force: :cascade do |t|
@@ -73,5 +89,7 @@ ActiveRecord::Schema[7.0].define(version: 2023_12_07_120007) do
   add_foreign_key "favorites", "users"
   add_foreign_key "item_tag_relations", "items"
   add_foreign_key "item_tag_relations", "tags"
+  add_foreign_key "items", "genres"
+  add_foreign_key "items", "situations"
   add_foreign_key "items", "users"
 end
