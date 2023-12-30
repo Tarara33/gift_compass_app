@@ -21,7 +21,7 @@ ActiveRecord::Schema[7.0].define(version: 2023_12_30_073014) do
   end
 
   create_table "genres", force: :cascade do |t|
-    t.string "name"
+    t.string "name", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
@@ -55,7 +55,7 @@ ActiveRecord::Schema[7.0].define(version: 2023_12_30_073014) do
   end
 
   create_table "situations", force: :cascade do |t|
-    t.string "name"
+    t.string "name", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
