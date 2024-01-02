@@ -1,9 +1,9 @@
 <% set_meta_tags title: t('.title') %>
-<h1 class='text-center my-3'><%= t('.title') %><i class="bi bi-pencil-fill"></i></h1>
+<h1 class='text-center my-3'><%= t('.title') %> <i class="bi bi-search-heart"></i></h1>
 <div class="container text-center my-5">
   <div class="row justify-content-around">
     <div class="col-xl-3 mb-3">
-      <button class="situation-btn birthday">誕生日</button>
+      <%= link_to "誕生日", items_path(situation_id: 1), class: 'situation-btn birthday' %>
     </div>
     <div class="col-xl-3 mb-3">
       <button class="situation-btn surprise">ふとした日のプレゼント</button>

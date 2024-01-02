@@ -6,6 +6,8 @@ class ItemsController < ApplicationController
   def index
     @items = if (tag_name = params[:tag_name])
                Item.with_tag(tag_name).order(created_at: :desc).page(params[:page])
+             elsif params[:situation_id]
+               items_from_situation
              else
                Item.includes(:tags).order(created_at: :desc).page(params[:page])
              end
@@ -91,5 +93,12 @@ class ItemsController < ApplicationController
 
   def tag_list_from_params
     params[:item][:tag_name].to_s.split(/[,、]/)
+  end
+
+  def items_from_situation
+    case params[:situation_id]
+    when '1'
+      Item.where(genre_id: [1, 2, 3, 5, 6]).where(price_range: [3, 4, 5, 6, 7, 8]).includes(:tags).order(created_at: :desc).page(params[:page])
+    end
   end
 end
