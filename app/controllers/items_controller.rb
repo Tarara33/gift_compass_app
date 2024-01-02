@@ -95,10 +95,22 @@ class ItemsController < ApplicationController
     params[:item][:tag_name].to_s.split(/[,、]/)
   end
 
-  def items_from_situation
+  def items_from_situation # rubocop:disable Metrics/AbcSize
     case params[:situation_id]
     when '1'
       Item.where(genre_id: [1, 2, 3, 5, 6]).where(price_range: [3, 4, 5, 6, 7, 8]).includes(:tags).order(created_at: :desc).page(params[:page])
+    when '2'
+      Item.where(genre_id: [2, 3, 7, 8, 10]).where(price_range: [0, 1, 2]).includes(:tags).order(created_at: :desc).page(params[:page])
+    when '3'
+      Item.where(genre_id: [1, 2, 3, 4, 5, 6, 7]).where(price_range: [1, 2, 3, 4, 5]).includes(:tags).order(created_at: :desc).page(params[:page])
+    when '4'
+      Item.where(genre_id: [2, 7, 8, 9]).where(price_range: [0, 1, 2, 3, 4]).includes(:tags).order(created_at: :desc).page(params[:page])
+    when '5'
+      Item.where(genre_id: [1, 2, 3, 4, 7, 8, 9]).where(price_range: [0, 1, 2, 3, 4]).includes(:tags).order(created_at: :desc).page(params[:page])
+    when '6'
+      Item.where(genre_id: [2, 3, 4, 7, 8, 9]).where(price_range: [0, 1, 2, 3, 4]).includes(:tags).order(created_at: :desc).page(params[:page])
+    when '7'
+      Item.where(genre_id: [2, 4, 7, 8, 9]).where(price_range: [0, 1, 2, 3, 4]).includes(:tags).order(created_at: :desc).page(params[:page])
     end
   end
 end

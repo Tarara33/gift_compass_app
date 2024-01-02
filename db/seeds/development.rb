@@ -59,3 +59,29 @@ end
     item.tags << tag
   end
 end
+
+
+# シチュエーション × ジャンル × 価格帯の組み合わせ作成
+# ジャンルを作成
+genres = Genre.all
+# シチュエーションを作成
+situations = Situation.all
+# 価格帯を指定
+price_ranges = Item.price_ranges.keys
+
+# ジャンルとシチュエーション、価格帯の組み合わせで Item を作成
+situations.each do |situation|
+  genres.each do |genre|
+    price_ranges.each do |price_range|
+      Item.create!(
+        item_name: "#{situation.name} #{genre.name} #{price_ranges.index(price_range) + 1}",
+        price: rand(1000..5000),  # 仮の価格の範囲を指定
+        price_range: price_range,
+        target_gender: rand(0..2),
+        genre: genre,
+        situation: situation,
+        user_id: 1
+      )
+    end
+  end
+end
