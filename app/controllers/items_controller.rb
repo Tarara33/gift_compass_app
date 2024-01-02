@@ -24,6 +24,8 @@ class ItemsController < ApplicationController
     @items = @q.result(distinct: true).includes(:tags).order(created_at: :desc).page(params[:page])
   end
 
+  def situation; end
+
   def show
     @item = Item.includes(:tags).find(params[:id])
     @tags = @item.tags.pluck(:tag_name).join(',')
