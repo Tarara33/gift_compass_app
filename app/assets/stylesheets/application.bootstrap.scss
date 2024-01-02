@@ -99,6 +99,9 @@ h1 {
   color: black;
   font-weight: bold;
   font-size: 24px;
+  text-align: center;
+  line-height: 170px;
+  text-decoration: none;
   width: 300px;
   height: 170px;
   border-radius: 5px;
@@ -204,7 +207,12 @@ h1 {
   }
 
   &:hover::after {
-    opacity: 0.7;
+    opacity: 0.8;
     transform: scale(1.2); /* ホバー時に画像を1.2倍に拡大 */
   }
+}
+
+.situation-btn a {
+  text-decoration: none;
+  color: inherit; /* リンクの色を継承する（デフォルトの色を使用）*/
 }

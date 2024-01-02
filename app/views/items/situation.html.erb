@@ -2,28 +2,28 @@
 <h1 class='text-center my-3'><%= t('.title') %> <i class="bi bi-search-heart"></i></h1>
 <div class="container text-center my-5">
   <div class="row justify-content-around">
-    <div class="col-xl-3 mb-3">
-      <%= link_to "誕生日", items_path(situation_id: 1), class: 'situation-btn birthday' %>
+    <div class="col-xl-3 mb-3 situation-btn birthday">
+      <%= link_to "誕生日", items_path(situation_id: 1) %>
     </div>
-    <div class="col-xl-3 mb-3">
-      <button class="situation-btn surprise">ふとした日のプレゼント</button>
+    <div class="col-xl-3 mb-3 situation-btn surprise">
+      <%= link_to "ふとした日のプレゼント", items_path(situation_id: 1) %>
     </div>
-    <div class="col-xl-3 mb-3">
-      <button class="situation-btn xmas">クリスマス</button>
+    <div class="col-xl-3 mb-3 situation-btn xmas">
+      <%= link_to "クリスマス", items_path(situation_id: 1) %>
     </div>
-    <div class="col-xl-3 mb-3">
-      <button class="situation-btn valentine">バレンタイン</button>
+    <div class="col-xl-3 mb-3 situation-btn valentine">
+      <%= link_to "バレンタイン", items_path(situation_id: 1) %>
     </div>
     <!-- 隙間を作る -->
     <div class="my-3"></div>
-    <div class="col-xl-4 mb-3">
-      <button class="situation-btn whiteday">ホワイトデー</button>
+    <div class="col-xl-4 mb-3 situation-btn whiteday">
+      <%= link_to "ホワイトデー", items_path(situation_id: 1) %>
     </div>
-    <div class="col-xl-4 mb-3">
-      <button class="situation-btn mother">母の日</button>
+    <div class="col-xl-4 mb-3 situation-btn mother">
+      <%= link_to "母の日", items_path(situation_id: 1) %>
     </div>
-    <div class="col-xl-4 mb-3">
-      <button class="situation-btn father">父の日</button>
+    <div class="col-xl-4 mb-3 situation-btn father">
+      <%= link_to "父の日", items_path(situation_id: 1) %>
     </div>
   </>
 </div>
