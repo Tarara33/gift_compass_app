@@ -2,6 +2,8 @@ class Item < ApplicationRecord
   mount_uploader :item_image, ItemImageUploader
 
   belongs_to :user
+  belongs_to :genre, optional: true
+  belongs_to :situation, optional: true
   has_many :item_tag_relations, dependent: :destroy
   has_many :tags, through: :item_tag_relations
   has_many :favorites, dependent: :destroy

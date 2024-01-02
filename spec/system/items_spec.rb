@@ -25,9 +25,10 @@ RSpec.describe "Items", type: :system do
       end
 
       context 'ログイン後' do
-        it 'ヘッダーの「欲しいもの一覧」から飛べること' do
+        it 'ヘッダーの「みんなの欲しいもの」から飛べること' do
           login(user)
-          click_link '欲しいもの一覧'
+          click_link '欲しいもの'
+          click_link 'みんなの欲しいもの'
           expect(page).to have_current_path(items_path)
         end
       end
@@ -51,10 +52,12 @@ RSpec.describe "Items", type: :system do
 
     describe '欲しいもの詳細・編集・削除(showアクション/editアクション/destroyアクション)' do
       context 'ログイン前' do
-        it 'ログインページにリダイレクトされる' do
+        it '詳細は観れるが編集・削除ボタンなどがない' do
           visit item_path(item)
-          expect(page).to have_content('ログインしてください')
-          expect(current_path).to eq(login_path)
+          expect(page).to have_content(item.item_name)
+          expect(page).not_to have_selector("#button-edit-#{item.id}")
+          expect(page).not_to have_selector("#button-delete-#{item.id}")
+          expect(current_path).to eq(item_path(item))
         end
       end
 

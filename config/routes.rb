@@ -8,7 +8,10 @@ Rails.application.routes.draw do
 
   resources :users, only: %i[new create]
   resources :items do
-    get :search, on: :collection
+    collection do
+      get :search
+      get :situation
+    end
   end
   resources :favorites, only: %i[create destroy]
   resource  :profiles, only: %i[show edit update] do

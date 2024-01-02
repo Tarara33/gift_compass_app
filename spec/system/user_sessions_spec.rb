@@ -45,9 +45,9 @@ RSpec.describe "UserSessions", type: :system do
       click_button 'ログイン'
       expect(page).to have_content('ログインに成功しました')
       expect(current_path).to eq(items_path)
-      click_link(class: 'nav-link dropdown-toggle header-menu')
+      click_link(class: 'nav-link dropdown-toggle header-menu menu')
       page.accept_confirm do
-        click_link 'ログアウト'
+        click_link('ログアウト', class: "dropdown-item")
       end
       expect(page).to have_content('ログアウトしました')
       expect(current_path).to eq(root_path)
