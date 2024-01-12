@@ -3,7 +3,10 @@
 <div class="container-fluid">
   <div class="row justify-content-center">
     <% if logged_in? %>
-    <%= render 'search_form', q: @q %>
+      <%= render 'search_form', q: @q %>
+      <% if @q.conditions.present? %>
+        <h2 class="text-center mt-3"><i class="bi bi-search"></i> <%= t('.search_results', items: @items.total_count) %></h2>
+      <% end %>
     <% end %>
     <% if @items.present? %>
       <div class="row row-cols-lg-5 row-cols-md-4 row-cols-2 g-4">

@@ -33,10 +33,7 @@ ja:
   items:
     index:
       title: みんなの欲しいもの
-    search:
-      title: 検索結果
       search_results: "検索結果 %{items} 件"
-      search_button: 検索
     show:
       title: 欲しいもの詳細
       user_name: "%{name} さんの欲しいもの"

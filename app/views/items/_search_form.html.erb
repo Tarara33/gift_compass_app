@@ -1,5 +1,5 @@
 <div class="my-4">
-  <%= search_form_for q, url: search_items_path, html: {class: 'd-flex mt-3'} do |f| %>
+  <%= search_form_for q, url: items_path, html: {class: 'd-flex mt-3'} do |f| %>
     <%= f.search_field :item_name_cont, class: 'form-control me-2', placeholder: Item.human_attribute_name('item_name') %>
 
     <%= f.search_field :tags_tag_name_cont, class: 'form-control me-2', placeholder: Tag.human_attribute_name('tag_name') %>
