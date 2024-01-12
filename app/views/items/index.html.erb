@@ -13,7 +13,9 @@
         <%= render @items %>
       </div>
     <% else %>
+      <% unless @q.conditions.present? %>
       <p class='text-center mt-3'>まだ欲しいものたちが登録されていません！</p>
+      <% end %>
     <% end %>
   </div>
   <div class="d-flex justify-content-center mt-3">
