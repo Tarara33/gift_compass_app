@@ -11,6 +11,13 @@ class ItemsController < ApplicationController
              end
   end
 
+  def search
+    @items = Item.where("item_name like ?", "%#{params[:q]}%")
+    respond_to do |format|
+      format.js
+    end
+  end
+
   def show
     @item = Item.includes(:tags).find(params[:id])
     @tags = @item.tags.pluck(:tag_name).join(',')

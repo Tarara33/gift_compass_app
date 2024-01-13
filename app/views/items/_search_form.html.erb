@@ -1,17 +1,26 @@
 <div class="my-4">
-  <%= search_form_for q, url: items_path, html: {class: 'd-flex mt-3'} do |f| %>
-    <%= f.search_field :item_name_cont, class: 'form-control me-2', placeholder: Item.human_attribute_name('item_name') %>
+    <%= search_form_for q, url: items_path, html: {class: 'd-flex mt-3'} do |f| %>
+      <div class="col me-1">
+        <div data-controller="autocomplete" data-autocomplete-url-value="/items/search" role="combobox">
+          <%= f.search_field :item_name_cont, data: { autocomplete_target: 'input' }, class: 'form-control position-relative', placeholder: Item.human_attribute_name('item_name') %>
+        </div>
+        <ul class="list-group position-absolute" data-autocomplete-target="results"></ul>
+      </div>
 
-    <%= f.search_field :tags_tag_name_cont, class: 'form-control me-2', placeholder: Tag.human_attribute_name('tag_name') %>
+      <div class="col me-1">
+        <%= f.search_field :tags_tag_name_cont, class: 'form-control', placeholder: Tag.human_attribute_name('tag_name') %>
+      </div>
 
-    <%= f.select :price_range_eq, Item.price_ranges_i18n.invert.map{|key, value| [key, Item.price_ranges[value]]},
-                  { include_blank: t('defaults.select', choice: Item.human_attribute_name('price_range')) },
-                  class: 'form-control me-2', placeholder: Item.human_attribute_name('price_range') %>
+      <div class="col me-1">
+        <%= f.select :price_range_eq, Item.price_ranges_i18n.invert.map {|key, value| [key, Item.price_ranges[value]]}, { include_blank: t('defaults.select', choice: Item.human_attribute_name('price_range')) }, class: 'form-control' %>
+      </div>
 
-    <%= f.select :target_gender_in, Item.target_genders_i18n.invert.map{|key, value| [key, Item.target_genders[value]]},
-                  { include_blank: t('defaults.select', choice: Item.human_attribute_name('target_gender')) },
-                  class: 'form-control me-2', placeholder: Item.human_attribute_name('target_gender') %>
+      <div class="col me-1">
+        <%= f.select :target_gender_in, Item.target_genders_i18n.invert.map {|key, value| [key, Item.target_genders[value]]}, { include_blank: t('defaults.select', choice: Item.human_attribute_name('target_gender')) }, class: 'form-control' %>
+      </div>
 
-    <%= f.submit '検索', class: 'btn btn-primary' %>
-  <% end %>
+      <%= f.submit '検索', class: 'btn btn-primary' %>
+    <% end %>
+  </div>
 </div>
+
