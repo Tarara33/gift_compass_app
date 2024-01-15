@@ -3,7 +3,7 @@
       <div class="col me-2">
         <div data-controller="autocomplete" data-autocomplete-url-value="/items/search" role="combobox">
           <%= f.search_field :item_name_cont, data: { autocomplete_target: 'input' }, class: 'form-control', placeholder: Item.human_attribute_name('item_name') %>
-          <ul class="list-group" data-autocomplete-target="results"></ul>
+          <ul class="autocomplete-item position-absolute d-flex flex-wrap list-unstyled bg-white col-11" style="z-index: 1000;" data-autocomplete-target="results"></ul>
         </div>
       </div>
 

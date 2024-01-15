@@ -50,6 +50,8 @@ ja:
       fail: 欲しいもの更新に失敗しました
     destroy:
       success: 欲しいものを削除しました
+    situation:
+      title: シチュエーションから探す
 
   profiles:
     show:
