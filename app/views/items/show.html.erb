@@ -41,6 +41,10 @@
                 </div>
 
                 <div class="h4 mb-4 text-danger border-bottom border-danger">
+                  <h5 class="text-start"><%= Genre.human_attribute_name('name') %>: <span style="color: black;"><%= @item.genre&.name %></h5></span>
+                </div>
+
+                <div class="h4 mb-4 text-danger border-bottom border-danger">
                   <h5 class="text-start"><%= Tag.human_attribute_name('tag_name') %>: <span style="color: black;"><%= render partial: 'item_tag', collection: @item.tags %></h5></span>
                 </div>
 

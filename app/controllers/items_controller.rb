@@ -6,6 +6,8 @@ class ItemsController < ApplicationController
   def index
     @items = if (tag_name = params[:tag_name])
                Item.with_tag(tag_name).order(created_at: :desc).page(params[:page])
+             elsif params[:situation_id]
+               items_from_situation
              else
                @q.result(distinct: true).includes(:tags).order(created_at: :desc).page(params[:page])
              end
@@ -17,6 +19,8 @@ class ItemsController < ApplicationController
       format.js
     end
   end
+
+  def situation; end
 
   def show
     @item = Item.includes(:tags).find(params[:id])
@@ -70,7 +74,7 @@ class ItemsController < ApplicationController
   private
 
   def item_params
-    params.require(:item).permit(:item_name, :price, :price_range, :target_gender, :item_url, :memo, :item_image, :item_image_cache)
+    params.require(:item).permit(:item_name, :price, :price_range, :target_gender, :genre_id, :situation_id, :item_url, :memo, :item_image, :item_image_cache)
   end
 
   def set_item
@@ -90,5 +94,24 @@ class ItemsController < ApplicationController
 
   def tag_list_from_params
     params[:item][:tag_name].to_s.split(/[,、]/)
+  end
+
+  def items_from_situation # rubocop:disable Metrics/AbcSize
+    case params[:situation_id]
+    when '1'
+      Item.where(situation_id: 1).or(Item.where(genre_id: [1, 2, 3, 5, 6]).where(price_range: [3, 4, 5, 6, 7, 8])).includes(:tags).order(created_at: :desc).page(params[:page])
+    when '2'
+      Item.where(situation_id: 2).or(Item.where(genre_id: [2, 3, 7, 8, 10]).where(price_range: [0, 1, 2])).includes(:tags).order(created_at: :desc).page(params[:page])
+    when '3'
+      Item.where(situation_id: 3).or(Item.where(genre_id: [1, 2, 3, 4, 5, 6, 7]).where(price_range: [1, 2, 3, 4, 5])).includes(:tags).order(created_at: :desc).page(params[:page])
+    when '4'
+      Item.where(situation_id: 4).or(Item.where(genre_id: [2, 7, 8, 9]).where(price_range: [0, 1, 2, 3, 4])).includes(:tags).order(created_at: :desc).page(params[:page])
+    when '5'
+      Item.where(situation_id: 5).or(Item.where(genre_id: [1, 2, 3, 4, 7, 8, 9]).where(price_range: [0, 1, 2, 3, 4])).includes(:tags).order(created_at: :desc).page(params[:page])
+    when '6'
+      Item.where(situation_id: 6).or(Item.where(genre_id: [2, 3, 4, 7, 8, 9]).where(price_range: [0, 1, 2, 3, 4])).includes(:tags).order(created_at: :desc).page(params[:page])
+    when '7'
+      Item.where(situation_id: 7).or(Item.where(genre_id: [2, 4, 7, 8, 9]).where(price_range: [0, 1, 2, 3, 4])).includes(:tags).order(created_at: :desc).page(params[:page])
+    end
   end
 end
