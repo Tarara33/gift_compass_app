@@ -30,7 +30,7 @@ ja:
         name: ジャンル
 
       situation:
-        name: シチュエーション
+        name: 貰いたいシチュエーション
 
   attributes:
     created_at: 作成日
