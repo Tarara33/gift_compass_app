@@ -31,6 +31,20 @@
 
   <div class="mb-3">
     <%= label_tag do %>
+      <i class="bi bi-patch-question-fill"></i> <%= Genre.human_attribute_name(:name) %>
+    <% end %></br>
+    <%= f.collection_select :genre_id, Genre.all, :id, :name, {include_blank: '選択してください'} %>
+  </div>
+
+  <div class="mb-3">
+    <%= label_tag do %>
+      <i class="bi bi-patch-question-fill"></i> <%= Situation.human_attribute_name(:name) %>
+    <% end %></br>
+    <%= f.collection_select :situation_id, Situation.all, :id, :name, {include_blank: '選択してください'} %>
+  </div>
+
+  <div class="mb-3">
+    <%= label_tag do %>
       <i class="bi bi-tag-fill"></i> <%= Tag.human_attribute_name(:tag_name) %><span class='required'>10文字以内</span>
     <% end %>
     <%= f.text_field :tag_name, class: 'form-control', placeholder: t('placeholder.tag_name_form'), value: tags %>

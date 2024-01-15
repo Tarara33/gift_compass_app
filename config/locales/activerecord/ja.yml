@@ -26,6 +26,12 @@ ja:
       tag:
         tag_name: タグ
 
+      genre:
+        name: ジャンル
+
+      situation:
+        name: 貰いたいシチュエーション
+
   attributes:
     created_at: 作成日
     updated_at: 更新日
