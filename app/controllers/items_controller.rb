@@ -13,8 +13,15 @@ class ItemsController < ApplicationController
              end
   end
 
-  def search
+  def search_name
     @items = Item.where("item_name like ?", "%#{params[:q]}%")
+    respond_to do |format|
+      format.js
+    end
+  end
+
+  def search_tag
+    @tags = Tag.where("tag_name like ?", "%#{params[:q]}%")
     respond_to do |format|
       format.js
     end

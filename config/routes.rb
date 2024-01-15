@@ -9,7 +9,8 @@ Rails.application.routes.draw do
   resources :users, only: %i[new create]
   resources :items do
     collection do
-      get :search
+      get :search_name
+      get :search_tag
       get :situation
     end
   end
