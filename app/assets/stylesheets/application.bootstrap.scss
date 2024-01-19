@@ -216,3 +216,17 @@ h1 {
   text-decoration: none;
   color: inherit; /* リンクの色を継承する（デフォルトの色を使用）*/
 }
+
+// オートコンプリートの予測結果をホバー部分を囲む
+.autocomplete-item li {
+  background-color: rgb(201, 246, 243);
+
+  &:hover {
+    cursor: pointer;
+    border: 1px solid blue;
+  }
+}
+
+.custom-width {
+  width: 94vw;
+}

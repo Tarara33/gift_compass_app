@@ -33,12 +33,7 @@ ja:
   items:
     index:
       title: みんなの欲しいもの
-    search:
-      title: 検索結果
       search_results: "検索結果 %{items} 件"
-      search_button: 検索
-    situation:
-      title: シチュエーションから探す
     show:
       title: 欲しいもの詳細
       user_name: "%{name} さんの欲しいもの"
@@ -55,6 +50,8 @@ ja:
       fail: 欲しいもの更新に失敗しました
     destroy:
       success: 欲しいものを削除しました
+    situation:
+      title: シチュエーションから探す
 
   profiles:
     show:

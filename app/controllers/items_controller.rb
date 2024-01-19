@@ -1,7 +1,7 @@
 class ItemsController < ApplicationController
   skip_before_action :require_login, only: %i[index show]
   before_action :set_item, only: %i[edit update destroy]
-  before_action :set_search, only: %i[index search]
+  before_action :set_search, only: %i[index]
 
   def index
     @items = if (tag_name = params[:tag_name])
@@ -9,21 +9,22 @@ class ItemsController < ApplicationController
              elsif params[:situation_id]
                items_from_situation
              else
-               Item.includes(:tags).order(created_at: :desc).page(params[:page])
+               @q.result(distinct: true).includes(:tags).order(created_at: :desc).page(params[:page])
              end
   end
 
-  def search
-    search_params = params[:q]
-
-    if search_params && search_params[:target_gender_in] == '1'
-      search_params[:target_gender_in] = %w[1 0]
-    elsif search_params && search_params[:target_gender_in] == '2'
-      search_params[:target_gender_in] = %w[2 0]
+  def search_name
+    @items = Item.where("item_name like ?", "%#{params[:q]}%")
+    respond_to do |format|
+      format.js
     end
-    # 更新したsearch_paramsを@qに再度適用する
-    @q = Item.ransack(search_params)
-    @items = @q.result(distinct: true).includes(:tags).order(created_at: :desc).page(params[:page])
+  end
+
+  def search_tag
+    @tags = Tag.where("tag_name like ?", "%#{params[:q]}%")
+    respond_to do |format|
+      format.js
+    end
   end
 
   def situation; end
@@ -47,7 +48,7 @@ class ItemsController < ApplicationController
     end
 
     redirect_to item_path(@item), success: t('.success')
-  rescue StandardError => e
+  rescue StandardError
     flash.now[:danger] = t('.fail')
     @tags = tag_list_from_params
     render :new, status: :unprocessable_entity
@@ -66,7 +67,7 @@ class ItemsController < ApplicationController
     end
 
     redirect_to item_path(@item), success: t('.success')
-  rescue StandardError => e
+  rescue StandardError
     flash.now[:danger] = t('.fail')
     @tags = tag_list_from_params
     render :edit, status: :unprocessable_entity
@@ -88,7 +89,14 @@ class ItemsController < ApplicationController
   end
 
   def set_search
-    @q = Item.ransack(params[:q])
+    search_params = params[:q]&.dup || {}
+    # 男女の検索条件を調整
+    if search_params[:target_gender_in] == '1'
+      search_params[:target_gender_in] = %w[1 0]
+    elsif search_params[:target_gender_in] == '2'
+      search_params[:target_gender_in] = %w[2 0]
+    end
+    @q = Item.ransack(search_params)
   end
 
   def tag_list_from_params
